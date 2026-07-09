@@ -1,0 +1,59 @@
+{
+  "name": "eoir_local_llm_draft_demo",
+  "description": "Generated from a natural-language request by the offline rule drafter.",
+  "platform_type_refs": [
+    "uav_eoir",
+    "ground_site"
+  ],
+  "actors": [
+    {
+      "name": "uav",
+      "platform_type_ref": "uav_eoir",
+      "side": "blue",
+      "route": [
+        {
+          "position": "34:30:00n 116:00w",
+          "altitude": "60000 ft",
+          "speed": "350 kts",
+          "heading": "0 deg"
+        }
+      ],
+      "execute": [
+        {
+          "time": "1 min",
+          "relative": true,
+          "script": "BeginImaging(\"eoir\", \"\", -90, 68000);"
+        },
+        {
+          "time": "4 min",
+          "relative": true,
+          "script": "EndImaging();"
+        },
+        {
+          "time": "7 min",
+          "relative": true,
+          "script": "BeginImaging(\"eoir\", \"\", -90, 150000);"
+        },
+        {
+          "time": "10 min",
+          "relative": true,
+          "script": "EndImaging();"
+        }
+      ]
+    }
+  ],
+  "target_set_refs": [
+    "eoir_short_long_targets"
+  ],
+  "event_pipe": {
+    "file": "output/eoir_local_llm_draft_demo.aer"
+  },
+  "event_output": {
+    "file": "output/eoir_local_llm_draft_demo.evt",
+    "event_set_ref": "eoir_sensor_events"
+  },
+  "end_time": {
+    "value": 20,
+    "unit": "min"
+  }
+}

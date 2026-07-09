@@ -1,0 +1,70 @@
+# Generated from a local-model scenario JSON draft.
+
+platform uav UAV
+   side blue
+
+   route
+      position 34:30:00n 116:00w altitude 60000 ft speed 350 kts heading 0 deg
+   end_route
+
+   execute at_time 1 min relative
+      BeginImaging("eoir", "", -90, 68000);
+   end_execute
+
+   execute at_time 4 min relative
+      EndImaging();
+   end_execute
+
+   execute at_time 7 min relative
+      BeginImaging("eoir", "", -90, 150000);
+   end_execute
+
+   execute at_time 10 min relative
+      EndImaging();
+   end_execute
+end_platform
+
+platform sr_target_01 GROUND_SITE
+   side red
+   position 34:45:00n 116:45w
+end_platform
+
+platform sr_target_01a GROUND_SITE
+   side red
+   position 34:45:10n 116:45w
+end_platform
+
+platform sr_target_02 GROUND_SITE
+   side red
+   position 34:47:00n 116:45w
+end_platform
+
+platform sr_target_02_nosee_01 GROUND_SITE
+   side red
+   position 34:47:00n 116:40w
+end_platform
+
+platform sr_target_02_nosee_02 GROUND_SITE
+   side red
+   position 34:47:00n 116:51w
+end_platform
+
+platform sr_target_03 GROUND_SITE
+   side red
+   position 34:49:00n 116:45w
+end_platform
+
+platform sr_target_04 GROUND_SITE
+   side red
+   position 34:51:00n 116:45w
+end_platform
+
+platform sr_target_05_no_see GROUND_SITE
+   side red
+   position 34:56:00n 116:45w
+end_platform
+
+platform lr_target_01 GROUND_SITE
+   side red
+   position 35:15:00n 117:45w
+end_platform

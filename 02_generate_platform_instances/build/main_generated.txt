@@ -1,0 +1,24 @@
+# Generated AFSIM main file from structured JSON.
+# This file includes platform types and the generated platform instance file.
+
+include D:/AFsim/AFSim/afsim-2.9.0-win64/demos/sensor_demos/platforms/uav_eoir.txt
+include D:/AFsim/AFSim/afsim-2.9.0-win64/demos/sensor_demos/platforms/ground_site.txt
+include scenario_generated.txt
+
+event_pipe
+   file output/eoir_platform_instance_demo.aer
+end_event_pipe
+
+event_output
+   file output/eoir_platform_instance_demo.evt
+   enable SENSOR_DETECTION_ATTEMPT
+   enable SENSOR_DETECTION_CHANGED
+   enable SENSOR_MODE_ACTIVATED
+   enable SENSOR_MODE_DEACTIVATED
+   enable SENSOR_TRACK_INITIATED
+   enable SENSOR_TRACK_DROPPED
+   enable SENSOR_TURNED_ON
+   enable SENSOR_TURNED_OFF
+end_event_output
+
+end_time 20 min

@@ -1,0 +1,44 @@
+{
+  "id": "eoir_short_long_targets",
+  "description": "Ground targets from the original EOIR sensor demo.",
+  "platform_type_ref": "ground_site",
+  "side": "red",
+  "targets": [
+    {
+      "name": "sr_target_01",
+      "position": "34:45:00n 116:45w"
+    },
+    {
+      "name": "sr_target_01a",
+      "position": "34:45:10n 116:45w"
+    },
+    {
+      "name": "sr_target_02",
+      "position": "34:47:00n 116:45w"
+    },
+    {
+      "name": "sr_target_02_nosee_01",
+      "position": "34:47:00n 116:40w"
+    },
+    {
+      "name": "sr_target_02_nosee_02",
+      "position": "34:47:00n 116:51w"
+    },
+    {
+      "name": "sr_target_03",
+      "position": "34:49:00n 116:45w"
+    },
+    {
+      "name": "sr_target_04",
+      "position": "34:51:00n 116:45w"
+    },
+    {
+      "name": "sr_target_05_no_see",
+      "position": "34:56:00n 116:45w"
+    },
+    {
+      "name": "lr_target_01",
+      "position": "35:15:00n 117:45w"
+    }
+  ]
+}

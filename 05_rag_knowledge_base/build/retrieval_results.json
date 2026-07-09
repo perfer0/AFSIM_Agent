@@ -1,0 +1,35 @@
+{
+  "query": "生成一个 EOIR 无人机侦察地面目标的 AFSIM 想定。\n\n请先参考本地知识库：\n- EOIR UAV 平台实例写法\n- 地面目标写法\n- 传感器事件输出写法\n\n想定要求：\n- 蓝方 UAV 使用 EOIR 成像。\n- 红方是一组地面目标。\n- UAV 初始位置 34:30:00n 116:00w，高度 60000 ft，速度 350 kts，航向 0 deg。\n- 1 分钟开始第一次成像，4 分钟结束。\n- 7 分钟开始第二次成像，10 分钟结束。\n- 仿真 20 分钟。\n",
+  "results": [
+    {
+      "id": "knowledge/afsim_snippets/eoir_platform_instance.md",
+      "kind": "knowledge",
+      "score": 40.455,
+      "excerpt": "# EOIR Platform Instance Pattern\n\nThis snippet shows the AFSIM pattern for a UAV platform using an EOIR sensor.\n\n```text\nplatform uav UAV\n   side blue\n\n   route\n      position 34:30:00n 116:00w altitude 60000 ft speed 350 kts heading 0 deg\n   end_route\n\n   execute at_time 1 min relative\n       BeginImaging(\"eoir\", \"\", -90, 68000);\n   end_execute\n   execute at_time 4 min relative\n       EndImaging();\n   end_execute\nend_platform\n```\n\nKey points:\n\n- `platform uav UAV` creates a platform instance named `uav` from platform type `UAV`.\n- `side blue` assigns force side.\n- `route` defines initial position, altitude, speed, and heading.\n- `execute at_time ... relative` calls scripts defined on the UA"
+    },
+    {
+      "id": "components/platform_types/uav_eoir.json",
+      "kind": "component",
+      "score": 16.318,
+      "excerpt": "{\n  \"id\": \"uav_eoir\",\n  \"name\": \"UAV with EOIR sensor\",\n  \"afsim_type\": \"UAV\",\n  \"include\": \"D:/AFsim/AFSim/afsim-2.9.0-win64/demos/sensor_demos/platforms/uav_eoir.txt\",\n  \"description\": \"Notional UAV platform type with a GENERIC_EOIR sensor and imaging scripts.\"\n}"
+    },
+    {
+      "id": "components/target_sets/eoir_short_long_targets.json",
+      "kind": "component",
+      "score": 14.671,
+      "excerpt": "{\n  \"id\": \"eoir_short_long_targets\",\n  \"description\": \"Ground targets from the original EOIR sensor demo.\",\n  \"platform_type_ref\": \"ground_site\",\n  \"side\": \"red\",\n  \"targets\": [\n    {\n      \"name\": \"sr_target_01\",\n      \"position\": \"34:45:00n 116:45w\"\n    },\n    {\n      \"name\": \"sr_target_01a\",\n      \"position\": \"34:45:10n 116:45w\"\n    },\n    {\n      \"name\": \"sr_target_02\",\n      \"position\": \"34:47:00n 116:45w\"\n    },\n    {\n      \"name\": \"sr_target_02_nosee_01\",\n      \"position\": \"34:47:00n 116:40w\"\n    },\n    {\n      \"name\": \"sr_target_02_nosee_02\",\n      \"position\": \"34:47:00n 116:51w\"\n    },\n    {\n      \"name\": \"sr_target_03\",\n      \"position\": \"34:49:00n 116:45w\"\n    },\n    {\n      \"name"
+    },
+    {
+      "id": "knowledge/afsim_snippets/ground_site_targets.md",
+      "kind": "knowledge",
+      "score": 6.773,
+      "excerpt": "# Ground Site Target Pattern\n\nThis snippet shows the AFSIM pattern for simple red ground targets.\n\n```text\nplatform sr_target_01 GROUND_SITE\n   side red\n   position 34:45:00n 116:45w\nend_platform\n```\n\nKey points:\n\n- `GROUND_SITE` is a platform type.\n- Each target is a platform instance.\n- Static targets can use `position` instead of `route`."
+    },
+    {
+      "id": "knowledge/afsim_snippets/event_output_sensor.md",
+      "kind": "knowledge",
+      "score": 5.079,
+      "excerpt": "# Sensor Event Output Pattern\n\nThis snippet shows sensor event output configuration.\n\n```text\nevent_output\n   file output/eoir_demo.evt\n   enable SENSOR_DETECTION_ATTEMPT\n   enable SENSOR_DETECTION_CHANGED\n   enable SENSOR_MODE_ACTIVATED\n   enable SENSOR_MODE_DEACTIVATED\n   enable SENSOR_TRACK_INITIATED\n   enable SENSOR_TRACK_DROPPED\n   enable SENSOR_TURNED_ON\n   enable SENSOR_TURNED_OFF\nend_event_output\n```\n\nKey points:\n\n- `event_output` controls event file output.\n- Sensor event switches are useful for EOIR detection and tracking review."
+    }
+  ]
+}

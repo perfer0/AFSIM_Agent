@@ -1,0 +1,7 @@
+{
+  "id": "ground_site",
+  "name": "Ground site target",
+  "afsim_type": "GROUND_SITE",
+  "include": "D:/AFsim/AFSim/afsim-2.9.0-win64/demos/sensor_demos/platforms/ground_site.txt",
+  "description": "Simple ground target platform type with radar and optical signatures."
+}

@@ -1,0 +1,40 @@
+{
+  "document_count": 7,
+  "documents": [
+    {
+      "id": "knowledge/afsim_snippets/eoir_platform_instance.md",
+      "kind": "knowledge",
+      "token_count": 98
+    },
+    {
+      "id": "knowledge/afsim_snippets/event_output_sensor.md",
+      "kind": "knowledge",
+      "token_count": 52
+    },
+    {
+      "id": "knowledge/afsim_snippets/ground_site_targets.md",
+      "kind": "knowledge",
+      "token_count": 49
+    },
+    {
+      "id": "components/event_outputs/eoir_sensor_events.json",
+      "kind": "component",
+      "token_count": 18
+    },
+    {
+      "id": "components/platform_types/ground_site.json",
+      "kind": "component",
+      "token_count": 33
+    },
+    {
+      "id": "components/platform_types/uav_eoir.json",
+      "kind": "component",
+      "token_count": 35
+    },
+    {
+      "id": "components/target_sets/eoir_short_long_targets.json",
+      "kind": "component",
+      "token_count": 88
+    }
+  ]
+}
