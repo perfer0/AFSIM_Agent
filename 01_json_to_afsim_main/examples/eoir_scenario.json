@@ -1,0 +1,30 @@
+{
+  "name": "eoir_demo_generated",
+  "description": "Learning MVP: generate an AFSIM main scenario file from structured JSON.",
+  "source_demo": "D:/AFsim/AFSim/afsim-2.9.0-win64/demos/sensor_demos/eoir_demo.txt",
+  "includes": [
+    "D:/AFsim/AFSim/afsim-2.9.0-win64/demos/sensor_demos/platforms/uav_eoir.txt",
+    "D:/AFsim/AFSim/afsim-2.9.0-win64/demos/sensor_demos/platforms/ground_site.txt",
+    "D:/AFsim/AFSim/afsim-2.9.0-win64/demos/sensor_demos/scenarios/eoir_demo.txt"
+  ],
+  "event_pipe": {
+    "file": "output/eoir_demo_generated.aer"
+  },
+  "event_output": {
+    "file": "output/eoir_demo_generated.evt",
+    "enabled_events": [
+      "SENSOR_DETECTION_ATTEMPT",
+      "SENSOR_DETECTION_CHANGED",
+      "SENSOR_MODE_ACTIVATED",
+      "SENSOR_MODE_DEACTIVATED",
+      "SENSOR_TRACK_INITIATED",
+      "SENSOR_TRACK_DROPPED",
+      "SENSOR_TURNED_ON",
+      "SENSOR_TURNED_OFF"
+    ]
+  },
+  "end_time": {
+    "value": 20,
+    "unit": "min"
+  }
+}
