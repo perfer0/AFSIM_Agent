@@ -1,0 +1,7 @@
+{
+  "id": "uav_eoir",
+  "name": "UAV with EOIR sensor",
+  "afsim_type": "UAV",
+  "include": "D:/AFsim/AFSim/afsim-2.9.0-win64/demos/sensor_demos/platforms/uav_eoir.txt",
+  "description": "Notional UAV platform type with a GENERIC_EOIR sensor and imaging scripts."
+}
