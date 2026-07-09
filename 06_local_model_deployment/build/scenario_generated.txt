@@ -10,18 +10,6 @@ platform uav UAV
    execute at_time 1 min relative
       BeginImaging("eoir", "", -90, 68000);
    end_execute
-
-   execute at_time 4 min relative
-      EndImaging();
-   end_execute
-
-   execute at_time 7 min relative
-      BeginImaging("eoir", "", -90, 150000);
-   end_execute
-
-   execute at_time 10 min relative
-      EndImaging();
-   end_execute
 end_platform
 
 platform sr_target_01 GROUND_SITE

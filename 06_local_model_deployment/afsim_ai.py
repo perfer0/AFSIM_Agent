@@ -108,6 +108,11 @@ def call_ollama(request_text: str, model: str, endpoint: str) -> dict:
     payload = {
         "model": model,
         "stream": False,
+        "format": "json",
+        "options": {
+            "temperature": 0.1,
+            "top_p": 0.9,
+        },
         "prompt": f"{prompt}\n\n用户需求：\n{request_text}\n",
     }
     request = urllib.request.Request(
@@ -116,7 +121,8 @@ def call_ollama(request_text: str, model: str, endpoint: str) -> dict:
         headers={"Content-Type": "application/json"},
         method="POST",
     )
-    with urllib.request.urlopen(request, timeout=180) as response:
+    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+    with opener.open(request, timeout=180) as response:
         body = json.loads(response.read().decode("utf-8"))
     return extract_json(body.get("response", ""))
 

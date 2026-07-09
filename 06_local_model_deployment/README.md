@@ -57,6 +57,22 @@ ollama list
 ollama pull qwen2.5:0.5b
 ```
 
+## 模型文件放到 D 盘项目目录
+
+本项目要求下载的模型文件放在：
+
+```text
+D:\AFsim\Agent\ollama\models
+```
+
+已经设置用户环境变量：
+
+```powershell
+OLLAMA_MODELS=D:\AFsim\Agent\ollama\models
+```
+
+如果以后重新打开电脑，发现 `ollama list` 看不到模型，先完全退出 Ollama，再重新打开。新下载的模型不要提交到 Git，仓库只提交代码、提示词、组件库和示例输出。
+
 ## 目录
 
 ```text
@@ -86,6 +102,8 @@ cd D:\AFsim\Agent\06_local_model_deployment
 ```
 
 如果 Ollama 不可用，`--fallback-rules` 会退回规则生成器，保证后续教学链路还能继续跑。
+
+脚本访问 `127.0.0.1:11434` 时会绕过系统代理，避免本地 Ollama 请求被代理转发后返回 `502 Bad Gateway`。
 
 验证并生成 AFSIM：
 
