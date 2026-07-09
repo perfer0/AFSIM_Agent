@@ -28,6 +28,8 @@ Agent 最后负责任务拆解和多步调用
 后续每一步都会新建文件夹，例如：
 
 ```text
-06_mcp_tools/
-07_agent_skills/
+06_local_model_deployment/
+07_mcp_tools/
+08_custom_skills/
+09_agent_orchestration/
 ```
