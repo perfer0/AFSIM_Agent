@@ -12,6 +12,7 @@
 05_rag_knowledge_base/           第五步：本地知识库检索 -> 场景 JSON -> AFSIM 验证
 06_local_model_deployment/       第六步：本地大模型 -> 场景 JSON -> AFSIM 验证
 07_agent_loop/                   第七步：Agent 闭环 -> 检索/生成/校验/修复/仿真
+08_mcp_tools/                    第八步：MCP 工具 -> 标准协议调用本地 Agent
 ```
 
 ## 当前路线
@@ -30,7 +31,7 @@ Agent 最后负责任务拆解和多步调用
 后续每一步都会新建文件夹，例如：
 
 ```text
-08_mcp_tools/
 09_custom_skills/
 10_agent_orchestration/
+11_project_integration/
 ```
