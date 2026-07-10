@@ -1,0 +1,14 @@
+{
+  "id": "eoir_sensor_events",
+  "description": "Common EOIR sensor event output switches.",
+  "enabled_events": [
+    "SENSOR_DETECTION_ATTEMPT",
+    "SENSOR_DETECTION_CHANGED",
+    "SENSOR_MODE_ACTIVATED",
+    "SENSOR_MODE_DEACTIVATED",
+    "SENSOR_TRACK_INITIATED",
+    "SENSOR_TRACK_DROPPED",
+    "SENSOR_TURNED_ON",
+    "SENSOR_TURNED_OFF"
+  ]
+}

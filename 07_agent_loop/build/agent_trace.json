@@ -1,0 +1,67 @@
+{
+  "events": [
+    {
+      "time": "2026-07-10T14:44:40",
+      "step": "plan",
+      "status": "ok",
+      "detail": "plan: retrieve knowledge, draft JSON, validate, repair if needed, generate AFSIM, run mission",
+      "data": {}
+    },
+    {
+      "time": "2026-07-10T14:44:40",
+      "step": "retrieve",
+      "status": "ok",
+      "detail": "retrieved local AFSIM knowledge snippets",
+      "data": {
+        "hits": [
+          {
+            "path": "knowledge\\afsim_snippets\\eoir_platform_instance.md",
+            "score": 8
+          },
+          {
+            "path": "knowledge\\afsim_snippets\\ground_site_targets.md",
+            "score": 4
+          },
+          {
+            "path": "knowledge\\afsim_snippets\\event_output_sensor.md",
+            "score": 2
+          }
+        ]
+      }
+    },
+    {
+      "time": "2026-07-10T14:44:41",
+      "step": "draft",
+      "status": "ok",
+      "detail": "local model produced initial scenario JSON",
+      "data": {
+        "model": "qwen2.5:0.5b"
+      }
+    },
+    {
+      "time": "2026-07-10T14:44:41",
+      "step": "validate",
+      "status": "ok",
+      "detail": "scenario JSON passed validation on attempt 0",
+      "data": {}
+    },
+    {
+      "time": "2026-07-10T14:44:41",
+      "step": "generate",
+      "status": "ok",
+      "detail": "generated AFSIM main and scenario files",
+      "data": {
+        "platforms": 10
+      }
+    },
+    {
+      "time": "2026-07-10T14:44:42",
+      "step": "run",
+      "status": "ok",
+      "detail": "mission.exe finished",
+      "data": {
+        "exit_code": 0
+      }
+    }
+  ]
+}

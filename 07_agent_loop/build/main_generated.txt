@@ -1,0 +1,23 @@
+# Generated AFSIM main file from a local model scenario JSON draft.
+
+include D:/AFsim/AFSim/afsim-2.9.0-win64/demos/sensor_demos/platforms/uav_eoir.txt
+include D:/AFsim/AFSim/afsim-2.9.0-win64/demos/sensor_demos/platforms/ground_site.txt
+include scenario_generated.txt
+
+event_pipe
+   file output/eoir_agent_loop_demo.aer
+end_event_pipe
+
+event_output
+   file output/eoir_agent_loop_demo.evt
+   enable SENSOR_DETECTION_ATTEMPT
+   enable SENSOR_DETECTION_CHANGED
+   enable SENSOR_MODE_ACTIVATED
+   enable SENSOR_MODE_DEACTIVATED
+   enable SENSOR_TRACK_INITIATED
+   enable SENSOR_TRACK_DROPPED
+   enable SENSOR_TURNED_ON
+   enable SENSOR_TURNED_OFF
+end_event_output
+
+end_time 20 min
