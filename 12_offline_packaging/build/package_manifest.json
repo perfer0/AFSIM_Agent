@@ -1,0 +1,91 @@
+{
+  "created_at": "2026-07-10T15:38:11",
+  "archive": "D:\\AFsim\\Agent\\12_offline_packaging\\build\\AFSIM_Agent_offline_20260710_153811.zip",
+  "archive_bytes": 107048,
+  "archive_sha256": "fc57f99a8842749eeccd56ca7fd0350342ca7c6d8cbcb8d507e218b4d37f7476",
+  "source_commit": "6780a68a15838c647b1636eb70a1fbc7ece1df0f",
+  "file_count": 110,
+  "excluded": {
+    "prefixes": [
+      "ollama/models/",
+      "12_offline_packaging/build/",
+      ".git/"
+    ],
+    "suffixes": [
+      ".aer",
+      ".evt",
+      ".pyc",
+      ".log"
+    ],
+    "note": "Ollama model blobs and generated simulation outputs are intentionally excluded."
+  },
+  "project_manifest": {
+    "project": "AFSIM_Agent",
+    "root": "D:/AFsim/Agent",
+    "model_storage": "D:/AFsim/Agent/ollama/models",
+    "default_model": "qwen2.5:0.5b",
+    "mission_exe": "D:/AFsim/AFSim/afsim-2.9.0-win64/bin/mission.exe",
+    "layers": [
+      {
+        "name": "CLI",
+        "path": "07_agent_loop/agent_loop.py",
+        "purpose": "Run the local Agent loop directly."
+      },
+      {
+        "name": "MCP",
+        "path": "08_mcp_tools/mcp_server.py",
+        "purpose": "Expose the Agent loop as standard tools."
+      },
+      {
+        "name": "Skill",
+        "path": "09_custom_skills/afsim-scenario-agent/SKILL.md",
+        "purpose": "Document the reusable AFSIM Agent workflow."
+      },
+      {
+        "name": "Orchestration",
+        "path": "10_agent_orchestration/orchestrator.py",
+        "purpose": "Run environment checks, MCP, Agent, AFSIM, and audit outputs."
+      }
+    ],
+    "quality_gates": [
+      "Ollama sees qwen2.5:0.5b from D:/AFsim/Agent/ollama/models",
+      "draft_provider is ollama",
+      "mission.exe exit code is 0",
+      "orchestration audit passed is true"
+    ]
+  },
+  "latest_project_report": {
+    "time": "2026-07-10T15:31:58",
+    "project": "AFSIM_Agent",
+    "request": "D:\\AFsim\\Agent\\11_project_integration\\requests\\integrated_eoir_request.txt",
+    "orchestration_returncode": 0,
+    "audit": {
+      "env_check_returncode": 0,
+      "mcp_returncode": 0,
+      "draft_provider": "ollama",
+      "run_exit_code": 0,
+      "required_events_present": true,
+      "artifacts_exist": {
+        "mcp_server": true,
+        "mcp_request": true,
+        "mcp_result": true,
+        "agent_trace": true,
+        "agent_scenario": true
+      },
+      "passed": true
+    },
+    "quality_gates": {
+      "model_storage": "D:/AFsim/Agent/ollama/models",
+      "default_model": "qwen2.5:0.5b",
+      "mission_exe": "D:/AFsim/AFSim/afsim-2.9.0-win64/bin/mission.exe",
+      "passed": true
+    },
+    "next_reading_order": [
+      "11_project_integration/README.md",
+      "11_project_integration/project_manifest.json",
+      "11_project_integration/build/project_run_report.json",
+      "10_agent_orchestration/build/orchestration_report.md"
+    ]
+  },
+  "checksums_path": "D:\\AFsim\\Agent\\12_offline_packaging\\build\\package_checksums.json"
+}

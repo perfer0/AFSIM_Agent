@@ -1,0 +1,554 @@
+{
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 213,
+      "sha256": "3a4f1e5801d7e0d885fa1c6b71b0debfbd77cd720233d995b997b8e2ab99a4f0"
+    },
+    {
+      "path": "01_json_to_afsim_main/README.md",
+      "bytes": 3160,
+      "sha256": "3ebfe5a77ee2478eb670455b35b58439801df0469a331d2f670eab866a1a08eb"
+    },
+    {
+      "path": "01_json_to_afsim_main/afsim_ai.py",
+      "bytes": 5175,
+      "sha256": "bde08097bd7e7c2d733bbb1c47532c1fc1d6c3a56844e7bf78895438f6158f07"
+    },
+    {
+      "path": "01_json_to_afsim_main/build/eoir_demo_generated.txt",
+      "bytes": 793,
+      "sha256": "ae331eef7ee387efa90f607e921a9c1ee8a612e8245fef643ebeb8f0c376d280"
+    },
+    {
+      "path": "01_json_to_afsim_main/examples/eoir_scenario.json",
+      "bytes": 956,
+      "sha256": "6e94f2aa7421ba66517411b21a1fd8dad5996c3f7b0458a92561932ec1a2fe1f"
+    },
+    {
+      "path": "02_generate_platform_instances/README.md",
+      "bytes": 2582,
+      "sha256": "50907ea6c8496081f943b9298f300474bd3d62257205bd7aca01160e97ca2804"
+    },
+    {
+      "path": "02_generate_platform_instances/afsim_ai.py",
+      "bytes": 8572,
+      "sha256": "454156eafe27cebcbfc5948f89aabc03f860d7f05f01888d828abbb632bea087"
+    },
+    {
+      "path": "02_generate_platform_instances/build/main_generated.txt",
+      "bytes": 777,
+      "sha256": "0040bde7748ad750dac2ad6aad01208b776d98ffcfc105bd200ddbc233933a9c"
+    },
+    {
+      "path": "02_generate_platform_instances/build/scenario_generated.txt",
+      "bytes": 1515,
+      "sha256": "5771f526e4cf60d1a9b91d8a5b38d3710a8759ec937b92d69e8fddb15165bbf7"
+    },
+    {
+      "path": "02_generate_platform_instances/examples/eoir_platform_scenario.json",
+      "bytes": 2859,
+      "sha256": "3f76327635c82fb2ec53f010fd4f31ad344475e61822640c51452ecbe12e7a30"
+    },
+    {
+      "path": "03_component_library/README.md",
+      "bytes": 2600,
+      "sha256": "8b6ef70c5333cc8aaa65a3a3cdbacb4c440b121ad8b75a3ca287a7bfa24934ec"
+    },
+    {
+      "path": "03_component_library/afsim_ai.py",
+      "bytes": 11517,
+      "sha256": "fc7d124ef52c609e04f41ec568b0700941e719cf0caae3519c9de5b74b3f15ed"
+    },
+    {
+      "path": "03_component_library/build/main_generated.txt",
+      "bytes": 720,
+      "sha256": "e9f3bbc53a6be5140b21cc8b456caa38877c2c5fa36b6aff16df6eb1d04f34b4"
+    },
+    {
+      "path": "03_component_library/build/scenario_generated.txt",
+      "bytes": 1500,
+      "sha256": "815135ee49d4f030a71220bbf45f00d0decf2cc852b18593f77f9e8489ada161"
+    },
+    {
+      "path": "03_component_library/components/event_outputs/eoir_sensor_events.json",
+      "bytes": 352,
+      "sha256": "a29150704860b9ee45a3d5cfb61ae70175e72e3e96ab4970f51e74f3ed696661"
+    },
+    {
+      "path": "03_component_library/components/platform_types/ground_site.json",
+      "bytes": 273,
+      "sha256": "60c4d8218503a8de9a32614907f280277ddb4319029d389c4274b30886933776"
+    },
+    {
+      "path": "03_component_library/components/platform_types/uav_eoir.json",
+      "bytes": 266,
+      "sha256": "24690e4baaa6390685aa6f5a8a0b868fd970bd96262af4165a4f180da808581c"
+    },
+    {
+      "path": "03_component_library/components/target_sets/eoir_short_long_targets.json",
+      "bytes": 938,
+      "sha256": "e8732edc0da3d45df1c2b4bdb2cc2f48d727c4b8ea56034d784f2091cdcff4aa"
+    },
+    {
+      "path": "03_component_library/examples/eoir_component_scenario.json",
+      "bytes": 1333,
+      "sha256": "9c6bab39f1061c0fc345f5095699657132a04bde60619cd8a4cc3e729d00e1b9"
+    },
+    {
+      "path": "04_local_llm_json_generation/README.md",
+      "bytes": 2812,
+      "sha256": "a61853b5b18336805826babc9a305b4bc10aeef1ea8dc272c90afd5a2d2cdbeb"
+    },
+    {
+      "path": "04_local_llm_json_generation/afsim_ai.py",
+      "bytes": 16291,
+      "sha256": "5827e5b4db1855319e0138e76da506bec1195c7ea95f266f461d49ee1dee8f95"
+    },
+    {
+      "path": "04_local_llm_json_generation/build/main_generated.txt",
+      "bytes": 712,
+      "sha256": "1a79928a666967f82bcffa041f369fb20058767478cce06e1090f0740cc932c3"
+    },
+    {
+      "path": "04_local_llm_json_generation/build/scenario_generated.txt",
+      "bytes": 1434,
+      "sha256": "144e464fc87dc6540940be775dd7b0622ccd6f77ce3d4b4dc5d0890d95d3a639"
+    },
+    {
+      "path": "04_local_llm_json_generation/components/event_outputs/eoir_sensor_events.json",
+      "bytes": 352,
+      "sha256": "a29150704860b9ee45a3d5cfb61ae70175e72e3e96ab4970f51e74f3ed696661"
+    },
+    {
+      "path": "04_local_llm_json_generation/components/platform_types/ground_site.json",
+      "bytes": 273,
+      "sha256": "60c4d8218503a8de9a32614907f280277ddb4319029d389c4274b30886933776"
+    },
+    {
+      "path": "04_local_llm_json_generation/components/platform_types/uav_eoir.json",
+      "bytes": 266,
+      "sha256": "24690e4baaa6390685aa6f5a8a0b868fd970bd96262af4165a4f180da808581c"
+    },
+    {
+      "path": "04_local_llm_json_generation/components/target_sets/eoir_short_long_targets.json",
+      "bytes": 938,
+      "sha256": "e8732edc0da3d45df1c2b4bdb2cc2f48d727c4b8ea56034d784f2091cdcff4aa"
+    },
+    {
+      "path": "04_local_llm_json_generation/examples/drafted_scenario.json",
+      "bytes": 1389,
+      "sha256": "c120988cfffed9e59ac78e4d422f8b778b7e91b376dc112089c8c08d971a68b0"
+    },
+    {
+      "path": "04_local_llm_json_generation/prompts/system_prompt.md",
+      "bytes": 1097,
+      "sha256": "b98f14313314550850c59b1ea564a336d94ec79484ba92dae7c0d18f10b9261b"
+    },
+    {
+      "path": "04_local_llm_json_generation/requests/eoir_request.txt",
+      "bytes": 361,
+      "sha256": "f79ee75781aa14110aa1829e4a0f7b9df616f271213f548b4d15afd49f702312"
+    },
+    {
+      "path": "05_rag_knowledge_base/README.md",
+      "bytes": 2704,
+      "sha256": "8bf4cfc407f2c2f7c0c57d245cd4258bd60acfe0e3ec2d6d73d3f835e47a04a0"
+    },
+    {
+      "path": "05_rag_knowledge_base/afsim_ai.py",
+      "bytes": 17305,
+      "sha256": "00a0f9413d40b34184f0fc9aa0963ed6676dbcfc448261689c0c3385019d4c67"
+    },
+    {
+      "path": "05_rag_knowledge_base/build/knowledge_index.json",
+      "bytes": 969,
+      "sha256": "3b8f88003b28d685bb883ddb025ed9bb6ce696cb40963f9417e60590ceca6fef"
+    },
+    {
+      "path": "05_rag_knowledge_base/build/main_generated.txt",
+      "bytes": 701,
+      "sha256": "8eaa557306604cde5c9f0ea0fff6c4331e8133d0382e53b539bf180d26a1b528"
+    },
+    {
+      "path": "05_rag_knowledge_base/build/retrieval_results.json",
+      "bytes": 4034,
+      "sha256": "7e6e129caa84dec6527ae62a935db5dc19c093f098aab59968055e38477dbdb9"
+    },
+    {
+      "path": "05_rag_knowledge_base/build/scenario_generated.txt",
+      "bytes": 1435,
+      "sha256": "2ba33fbca6ff739296a58bef4b7d8341bdcedfb09c7c9719c7e0b71da513ba99"
+    },
+    {
+      "path": "05_rag_knowledge_base/components/event_outputs/eoir_sensor_events.json",
+      "bytes": 352,
+      "sha256": "a29150704860b9ee45a3d5cfb61ae70175e72e3e96ab4970f51e74f3ed696661"
+    },
+    {
+      "path": "05_rag_knowledge_base/components/platform_types/ground_site.json",
+      "bytes": 273,
+      "sha256": "60c4d8218503a8de9a32614907f280277ddb4319029d389c4274b30886933776"
+    },
+    {
+      "path": "05_rag_knowledge_base/components/platform_types/uav_eoir.json",
+      "bytes": 266,
+      "sha256": "24690e4baaa6390685aa6f5a8a0b868fd970bd96262af4165a4f180da808581c"
+    },
+    {
+      "path": "05_rag_knowledge_base/components/target_sets/eoir_short_long_targets.json",
+      "bytes": 938,
+      "sha256": "e8732edc0da3d45df1c2b4bdb2cc2f48d727c4b8ea56034d784f2091cdcff4aa"
+    },
+    {
+      "path": "05_rag_knowledge_base/examples/rag_drafted_scenario.json",
+      "bytes": 2046,
+      "sha256": "2eba4529ece926534fdff2824cbed689c3fd2ad6a2c2ddeeb917cf4a40bd6bef"
+    },
+    {
+      "path": "05_rag_knowledge_base/knowledge/afsim_snippets/eoir_platform_instance.md",
+      "bytes": 717,
+      "sha256": "a5bc99923ee27c93f090c11edb97ef41a4bc957a3eb9eeda32a6c56e1ad86170"
+    },
+    {
+      "path": "05_rag_knowledge_base/knowledge/afsim_snippets/event_output_sensor.md",
+      "bytes": 546,
+      "sha256": "0b3db5842edfdd0da90e3699ab2165437ad60d22b82033695ce4fead5e61e97d"
+    },
+    {
+      "path": "05_rag_knowledge_base/knowledge/afsim_snippets/ground_site_targets.md",
+      "bytes": 344,
+      "sha256": "0e07a9d3746522fbe99c882f22ed7ccb7aa2f882098de85fe1efe5f2b73c525c"
+    },
+    {
+      "path": "05_rag_knowledge_base/requests/eoir_rag_request.txt",
+      "bytes": 480,
+      "sha256": "222220180316b8f42d1e7e38f0ec91ae9e8ab79a0fa2398e4fbe5c6b75967395"
+    },
+    {
+      "path": "06_local_model_deployment/README.md",
+      "bytes": 3192,
+      "sha256": "86aab52f73a23d77c2a45b9f56eefde915ad926f101be060db4c712555409e01"
+    },
+    {
+      "path": "06_local_model_deployment/afsim_ai.py",
+      "bytes": 16091,
+      "sha256": "02bcba9437dd986c32835c52b7f959ae1b6d8b49f0357ca297dd2032002d9a68"
+    },
+    {
+      "path": "06_local_model_deployment/build/main_generated.txt",
+      "bytes": 704,
+      "sha256": "7869dbcd24b2d3a8383cc3620e5c1974095c8806b44e6edef934e68832f7cdde"
+    },
+    {
+      "path": "06_local_model_deployment/build/scenario_generated.txt",
+      "bytes": 1186,
+      "sha256": "13836083003ae9dda98451bf63c3b340ce180677a8b922cc3d663f34bbbc9b28"
+    },
+    {
+      "path": "06_local_model_deployment/components/event_outputs/eoir_sensor_events.json",
+      "bytes": 352,
+      "sha256": "a29150704860b9ee45a3d5cfb61ae70175e72e3e96ab4970f51e74f3ed696661"
+    },
+    {
+      "path": "06_local_model_deployment/components/platform_types/ground_site.json",
+      "bytes": 273,
+      "sha256": "60c4d8218503a8de9a32614907f280277ddb4319029d389c4274b30886933776"
+    },
+    {
+      "path": "06_local_model_deployment/components/platform_types/uav_eoir.json",
+      "bytes": 266,
+      "sha256": "24690e4baaa6390685aa6f5a8a0b868fd970bd96262af4165a4f180da808581c"
+    },
+    {
+      "path": "06_local_model_deployment/components/target_sets/eoir_short_long_targets.json",
+      "bytes": 938,
+      "sha256": "e8732edc0da3d45df1c2b4bdb2cc2f48d727c4b8ea56034d784f2091cdcff4aa"
+    },
+    {
+      "path": "06_local_model_deployment/examples/local_model_drafted_scenario.json",
+      "bytes": 984,
+      "sha256": "f9649dc97cb0dfe567cd913a3109a32185e2dd04637d06e806a8f0f6d3f11458"
+    },
+    {
+      "path": "06_local_model_deployment/knowledge/afsim_snippets/eoir_platform_instance.md",
+      "bytes": 717,
+      "sha256": "a5bc99923ee27c93f090c11edb97ef41a4bc957a3eb9eeda32a6c56e1ad86170"
+    },
+    {
+      "path": "06_local_model_deployment/knowledge/afsim_snippets/event_output_sensor.md",
+      "bytes": 546,
+      "sha256": "0b3db5842edfdd0da90e3699ab2165437ad60d22b82033695ce4fead5e61e97d"
+    },
+    {
+      "path": "06_local_model_deployment/knowledge/afsim_snippets/ground_site_targets.md",
+      "bytes": 344,
+      "sha256": "0e07a9d3746522fbe99c882f22ed7ccb7aa2f882098de85fe1efe5f2b73c525c"
+    },
+    {
+      "path": "06_local_model_deployment/prompts/local_model_prompt.md",
+      "bytes": 1448,
+      "sha256": "d318c4f11c419894e74c9ec58928d97088f26bada1a02ccd7b0766b9ed22ff70"
+    },
+    {
+      "path": "06_local_model_deployment/requests/eoir_local_model_request.txt",
+      "bytes": 483,
+      "sha256": "b62b2798ac63e4d8f0f469ee6d2eacd3f9cfde24bb5d8a7a052d5499ef723965"
+    },
+    {
+      "path": "07_agent_loop/README.md",
+      "bytes": 2230,
+      "sha256": "ad26994003e660120b72fcad34d388c7116dcc08bab70dbaaa0608b80e5a2c4f"
+    },
+    {
+      "path": "07_agent_loop/afsim_ai.py",
+      "bytes": 16091,
+      "sha256": "02bcba9437dd986c32835c52b7f959ae1b6d8b49f0357ca297dd2032002d9a68"
+    },
+    {
+      "path": "07_agent_loop/agent_loop.py",
+      "bytes": 11521,
+      "sha256": "402d558fee7c4878917fa19dab689df476bbd8e1b00f08a7838aa1687ec6caf6"
+    },
+    {
+      "path": "07_agent_loop/build/agent_trace.json",
+      "bytes": 1662,
+      "sha256": "f6990d2daf8fa167598de764ebe0b74d8fc01542551cb61069ba8bfd5502ade0"
+    },
+    {
+      "path": "07_agent_loop/build/main_generated.txt",
+      "bytes": 702,
+      "sha256": "9ad22b072f98031fa1114a2a1a89b6dfd4b796bb9244d06ab6d72f9724ed992c"
+    },
+    {
+      "path": "07_agent_loop/build/retrieval_context.md",
+      "bytes": 1883,
+      "sha256": "10bad15d0a43f57ce408532edd3594439cd34d43f12d19d66be1429e1fe3646b"
+    },
+    {
+      "path": "07_agent_loop/build/scenario_generated.txt",
+      "bytes": 1260,
+      "sha256": "74b96d555f6271c5af7c32b5b36ddaf850408feb7572a8dfe1bdb9e9a7bf5732"
+    },
+    {
+      "path": "07_agent_loop/components/event_outputs/eoir_sensor_events.json",
+      "bytes": 352,
+      "sha256": "a29150704860b9ee45a3d5cfb61ae70175e72e3e96ab4970f51e74f3ed696661"
+    },
+    {
+      "path": "07_agent_loop/components/platform_types/ground_site.json",
+      "bytes": 273,
+      "sha256": "60c4d8218503a8de9a32614907f280277ddb4319029d389c4274b30886933776"
+    },
+    {
+      "path": "07_agent_loop/components/platform_types/uav_eoir.json",
+      "bytes": 266,
+      "sha256": "24690e4baaa6390685aa6f5a8a0b868fd970bd96262af4165a4f180da808581c"
+    },
+    {
+      "path": "07_agent_loop/components/target_sets/eoir_short_long_targets.json",
+      "bytes": 938,
+      "sha256": "e8732edc0da3d45df1c2b4bdb2cc2f48d727c4b8ea56034d784f2091cdcff4aa"
+    },
+    {
+      "path": "07_agent_loop/examples/agent_generated_scenario.json",
+      "bytes": 1109,
+      "sha256": "d6628bb2d41a387e0eb442f716383008eb65fd0ff8696ec3d34f1852b8ff93a1"
+    },
+    {
+      "path": "07_agent_loop/knowledge/afsim_snippets/eoir_platform_instance.md",
+      "bytes": 717,
+      "sha256": "a5bc99923ee27c93f090c11edb97ef41a4bc957a3eb9eeda32a6c56e1ad86170"
+    },
+    {
+      "path": "07_agent_loop/knowledge/afsim_snippets/event_output_sensor.md",
+      "bytes": 546,
+      "sha256": "0b3db5842edfdd0da90e3699ab2165437ad60d22b82033695ce4fead5e61e97d"
+    },
+    {
+      "path": "07_agent_loop/knowledge/afsim_snippets/ground_site_targets.md",
+      "bytes": 344,
+      "sha256": "0e07a9d3746522fbe99c882f22ed7ccb7aa2f882098de85fe1efe5f2b73c525c"
+    },
+    {
+      "path": "07_agent_loop/prompts/agent_draft_prompt.md",
+      "bytes": 1585,
+      "sha256": "670a47da7a45dad84538e7f7df508fcdca2d4f78f697e69920a568d46be12778"
+    },
+    {
+      "path": "07_agent_loop/prompts/agent_repair_prompt.md",
+      "bytes": 525,
+      "sha256": "1183746c162f6d695f29eaf6e82e7b4462f1b145ad54f7fd315ae62e4832d25e"
+    },
+    {
+      "path": "07_agent_loop/requests/eoir_agent_request.txt",
+      "bytes": 345,
+      "sha256": "b552b0c1fcb7be3c84bb3e2bd39a147d54f3a6089def4737137228bcd280772e"
+    },
+    {
+      "path": "08_mcp_tools/README.md",
+      "bytes": 1786,
+      "sha256": "e382ede93d72cd14e79e85e6867340ceac31b3ac53d2ad2da5bd1c2796c67664"
+    },
+    {
+      "path": "08_mcp_tools/build/mcp_request.txt",
+      "bytes": 238,
+      "sha256": "c6124853a224792834de7a3b16e981a13dbc0b50b413d868891e9ffdf4ae9c6d"
+    },
+    {
+      "path": "08_mcp_tools/build/mcp_test_result.json",
+      "bytes": 5061,
+      "sha256": "c61294aee79e7bc4fa312e0d41adc35e8bead116e6703f9a242f710e3f29c7b1"
+    },
+    {
+      "path": "08_mcp_tools/mcp_client_test.py",
+      "bytes": 4009,
+      "sha256": "d100f9c05e806f27572dc9ed6edcd7960dc730f8fdc880df3a8560f71cdabf58"
+    },
+    {
+      "path": "08_mcp_tools/mcp_server.py",
+      "bytes": 6781,
+      "sha256": "6d8df60caf3653037111d85c303c89baeeed67c57e9ef5ad83dc984b5d62dfd9"
+    },
+    {
+      "path": "08_mcp_tools/requests/eoir_mcp_request.txt",
+      "bytes": 233,
+      "sha256": "85624bcf7102dbf0b886b7e0bbe6fe0e042a1b63e394d7d69740a5ab192edc6d"
+    },
+    {
+      "path": "09_custom_skills/README.md",
+      "bytes": 1202,
+      "sha256": "16536b22fbdf57b1212b83eb49b5be6a1ecfee2c4b927bae1aa3b614025af008"
+    },
+    {
+      "path": "09_custom_skills/afsim-scenario-agent/SKILL.md",
+      "bytes": 1998,
+      "sha256": "3398dd783a8658e52a839bbbc1be364384dcbc6d64396d05d562fa288e707f5a"
+    },
+    {
+      "path": "09_custom_skills/afsim-scenario-agent/agents/openai.yaml",
+      "bytes": 220,
+      "sha256": "acecd5e2874285f4456fea920bba6f586ee243d50f3ee41e77d1c32e3fdd2eb2"
+    },
+    {
+      "path": "09_custom_skills/afsim-scenario-agent/references/mcp.md",
+      "bytes": 1083,
+      "sha256": "31597cc5e79e971a601b89adf159949fd338be018f0c26341cc828ec500cdc56"
+    },
+    {
+      "path": "09_custom_skills/afsim-scenario-agent/references/workflow.md",
+      "bytes": 1679,
+      "sha256": "18c911d2db4e111a37786bfef9231ce6588e6d8cbd0b1296f296caaf8101d9ad"
+    },
+    {
+      "path": "09_custom_skills/afsim-scenario-agent/scripts/check_afsim_agent_env.py",
+      "bytes": 1876,
+      "sha256": "49794b2a35e8f8af8c08c5ce80a4189d266f854856f15facfec0eac7d7328e26"
+    },
+    {
+      "path": "10_agent_orchestration/README.md",
+      "bytes": 1516,
+      "sha256": "a4848751611ef3959743d2c0ab3aeb2dd7eaa7fe530a7203f6090375a97bf3a3"
+    },
+    {
+      "path": "10_agent_orchestration/build/environment_check.json",
+      "bytes": 1210,
+      "sha256": "4bcfd324191013b0ffb394322fd5569d4dd359287967bc050109659f6dd0ca66"
+    },
+    {
+      "path": "10_agent_orchestration/build/mcp_client_run.json",
+      "bytes": 5982,
+      "sha256": "5dde745d4f00ddf00aefae5c4ae26e329e352ac993f7e556d929cfe50f686829"
+    },
+    {
+      "path": "10_agent_orchestration/build/orchestration_audit.json",
+      "bytes": 326,
+      "sha256": "b81e7bb7f69b8f9d96b8cca74f79023d2bffd89c012b9528197215d3f4a7c983"
+    },
+    {
+      "path": "10_agent_orchestration/build/orchestration_report.md",
+      "bytes": 1424,
+      "sha256": "ed33988e0ad47343f81700632c79c70fc6070e353b979422a6e1fc3aca64cf40"
+    },
+    {
+      "path": "10_agent_orchestration/build/orchestration_request.txt",
+      "bytes": 305,
+      "sha256": "0131c1be037da7b0bf00c9ce024eb13ae573214e874e22283211ee45973b58c9"
+    },
+    {
+      "path": "10_agent_orchestration/orchestrator.py",
+      "bytes": 6196,
+      "sha256": "9063d55b1b66974feb758d017d5c581eb51930e5e8fe949d64cc1cd998975f4c"
+    },
+    {
+      "path": "10_agent_orchestration/requests/eoir_orchestration_request.txt",
+      "bytes": 419,
+      "sha256": "e71e6aaec941de2b7eec52461d11c053d2895090f9f9e6e68739cb87ddc6bf94"
+    },
+    {
+      "path": "11_project_integration/README.md",
+      "bytes": 1470,
+      "sha256": "00a804616141d8df40b4a6e064a1eccc5cddf02f6a0bd0c5cad8d089ce6da148"
+    },
+    {
+      "path": "11_project_integration/afsim_project.py",
+      "bytes": 5815,
+      "sha256": "d67d18d37336b85e63fdd93ddb0d238ca18d91c7c3b39aaf46339e44e9a263ef"
+    },
+    {
+      "path": "11_project_integration/build/integrated_request.txt",
+      "bytes": 305,
+      "sha256": "0131c1be037da7b0bf00c9ce024eb13ae573214e874e22283211ee45973b58c9"
+    },
+    {
+      "path": "11_project_integration/build/orchestration_run.json",
+      "bytes": 483,
+      "sha256": "5fe6b5c1527cae772b0cc4e3d8d35f1179ba2a1a6ca338893978f85a983af27d"
+    },
+    {
+      "path": "11_project_integration/build/project_run_report.json",
+      "bytes": 1025,
+      "sha256": "87f64dc07aa25404fc5b20c36f19e1c862130d060023a2671284bdc2143bf853"
+    },
+    {
+      "path": "11_project_integration/build/project_run_report.md",
+      "bytes": 434,
+      "sha256": "cef9cd9d0d1e185fc39d09078a03844b7e9f31ddba00b98f0693c8676a9c42e6"
+    },
+    {
+      "path": "11_project_integration/build/project_status.json",
+      "bytes": 867,
+      "sha256": "5b22796ee98f52b028d7badf1dfcb03c09fa7eba56ea87dc94d0cc1c0c60212d"
+    },
+    {
+      "path": "11_project_integration/project_manifest.json",
+      "bytes": 1046,
+      "sha256": "957cb5f8687f516afb9ecd9771ba693e616c3cd93d473d1f2027693a52260db4"
+    },
+    {
+      "path": "11_project_integration/requests/integrated_eoir_request.txt",
+      "bytes": 297,
+      "sha256": "58950d9d2bf8ad4db2167f4dc6be6d75fc1fbab7d2e1ad3b4739dcc0a320d831"
+    },
+    {
+      "path": "12_offline_packaging/README.md",
+      "bytes": 1271,
+      "sha256": "4aa0a739352466fa57eeee2f72bc81a5264fadc144b0d0ac2fab1380409a70f7"
+    },
+    {
+      "path": "12_offline_packaging/package_project.py",
+      "bytes": 6967,
+      "sha256": "ef59b4786252d4d3748524bd587e7e782c3228206fe4fc98b1e754559bed8d16"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1611,
+      "sha256": "13b33293d9fc635368f61ffe763f9da3ce4fef5317493060dd8e3481c0c31c37"
+    },
+    {
+      "path": "ollama/README.md",
+      "bytes": 460,
+      "sha256": "1a97b657a0428e0f82170509adea4f79e876446f8fa5d2125028e2281b45aa88"
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 **/build/*.log
 **/*.aer
 **/*.evt
+**/build/*.zip
 
 # Python cache
 __pycache__/
