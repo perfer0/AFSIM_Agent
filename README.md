@@ -17,6 +17,7 @@
 10_agent_orchestration/          第十步：总控编排 -> Skill/MCP/Agent/AFSIM 审计
 11_project_integration/          第十一步：项目入口 -> manifest/status/run/report
 12_offline_packaging/            第十二步：离线打包 -> 源码包/清单/校验/恢复说明
+13_capability_review/            第十三步：能力复盘 -> 证据化评估当前能力边界
 ```
 
 ## 当前路线
@@ -35,7 +36,7 @@ Agent 最后负责任务拆解和多步调用
 后续每一步都会新建文件夹，例如：
 
 ```text
-13_capability_review/
 14_next_scenario_types/
 15_real_afsim_extension/
+16_model_upgrade/
 ```
