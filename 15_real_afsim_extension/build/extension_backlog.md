@@ -1,6 +1,6 @@
 # Step 15 Real AFSIM Extension Backlog
 
-Generated at: 2026-07-10T15:53:17
+Generated at: 2026-07-10T15:55:54
 AFSIM demos root: `D:\AFsim\AFSim\afsim-2.9.0-win64\demos`
 Passed: True
 
@@ -15,31 +15,31 @@ Passed: True
 
 ### radar
 
+- score=129 `air_to_air\prdata\rules_utils.txt`
+- score=129 `base_types\processors\ripr_agents\aiss\aiss_processor.txt`
+- score=75 `air_to_air\rules\shoot_it.txt`
+- score=71 `air_to_air\sensor_observer.txt`
 - score=71 `electronic_warfare\jam_strobe_tracking.txt`
-- score=67 `air_to_air\sensor_observer.txt`
-- score=47 `base_types\sensors\radar\generic_fire_control_radar.txt`
-- score=46 `air_to_air\processors\sensor_cue_processor.txt`
-- score=43 `sensor_demos\passive_detector_df_demo.txt`
 
 ### communications
 
-- score=30 `space_operations\lasercomm_scripted.txt`
-- score=21 `space_operations\scripts\comm_link.txt`
-- score=15 `multiresolution_demos\comm_demo.txt`
-- score=13 `electronic_warfare\comm_jamming.txt`
-- score=13 `satellite_demos\TLE\x-comm_platforms.txt`
+- score=1440 `space_operations\scenarios\starlink_autogen.txt`
+- score=133 `satellite_demos\satellites\orbit_nominal\iridium.txt`
+- score=133 `space_operations\scenarios\iridium.txt`
+- score=73 `satellite_demos\platforms\satellite_based_navigation_system.txt`
+- score=67 `space_operations\scenarios\iridium_constellation.txt`
 
 ### weapon
 
-- score=81 `base_types\processors\quantum_agents\aiww\behavior_buddy_engage_weapon_task_target.txt`
-- score=69 `air_to_air\weapons\aam\mrm_launch_computer_results.1.1.txt`
-- score=65 `air_to_air\weapons\aam\srm_launch_computer_results.1.1.txt`
-- score=54 `base_types\processors\timeline_agents\weapon_defs.txt`
-- score=45 `base_types\weapons\aam\simple_blue_lr_a2a_rf_missile_air_to_air_launch_computer_table.txt`
+- score=2652 `base_types\weapons\aam\test_medium_range_missile_air_to_air_launch_computer_table.txt`
+- score=1770 `base_types\weapons\aam\simple_blue_lr_a2a_rf_missile_air_to_air_launch_computer_table.txt`
+- score=489 `behavior_tree\weapons\aam\launch_computer_simple_mrm_table.txt`
+- score=115 `air_to_air\weapons\aam\mrm_launch_computer_results.1.1.txt`
+- score=115 `air_to_air\weapons\aam\srm_launch_computer_results.1.1.txt`
 
 ### electronic_warfare
 
-- score=32 `base_types\processors\ripr_agents\aijam\aijam_processor.txt`
+- score=34 `base_types\processors\ripr_agents\aijam\aijam_processor.txt`
 - score=24 `electronic_warfare\semi-auto_repeater_jamming_1.txt`
 - score=20 `electronic_warfare\agile_repeater_jamming-rt1.txt`
 - score=20 `electronic_warfare\agile_repeater_jamming-rt2.txt`

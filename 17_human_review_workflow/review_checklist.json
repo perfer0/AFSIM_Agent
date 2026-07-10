@@ -1,0 +1,50 @@
+{
+  "purpose": "Human review checklist for AI-generated AFSIM scenarios.",
+  "required_sections": [
+    {
+      "id": "mission_intent",
+      "name": "任务意图",
+      "checks": [
+        "自然语言需求是否清楚",
+        "场景目标是否可由当前组件库表达",
+        "仿真结束时间是否合理"
+      ]
+    },
+    {
+      "id": "component_selection",
+      "name": "组件选择",
+      "checks": [
+        "platform_type_refs 是否全部存在",
+        "target_set_refs 是否匹配平台类型",
+        "event_output 是否启用需要的事件"
+      ]
+    },
+    {
+      "id": "timeline_and_geometry",
+      "name": "时间线和空间参数",
+      "checks": [
+        "航线位置、速度、高度是否明显异常",
+        "execute 时间是否在 end_time 内",
+        "目标位置是否与传感器动作匹配"
+      ]
+    },
+    {
+      "id": "model_output_risk",
+      "name": "模型输出风险",
+      "checks": [
+        "模型是否编造了组件 ID",
+        "是否绕过 JSON schema 直接写 AFSIM",
+        "是否出现未解释的大幅参数变化"
+      ]
+    },
+    {
+      "id": "simulation_evidence",
+      "name": "仿真证据",
+      "checks": [
+        "mission.exe exit code 是否为 0",
+        "Agent trace 是否包含 plan/retrieve/draft/validate/generate/run",
+        "输出报告是否记录 draft_provider"
+      ]
+    }
+  ]
+}

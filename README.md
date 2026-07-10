@@ -21,6 +21,8 @@
 14_next_scenario_types/          第十四步：多想定类型 -> 类型矩阵/组件需求/优先级
 15_real_afsim_extension/         第十五步：真实扩展 -> 扫描 AFSIM demo 形成证据
 16_model_upgrade/                第十六步：模型升级 -> 7B/14B 候选与验证门禁
+17_human_review_workflow/        第十七步：人机审查 -> 任务/组件/参数/证据检查
+18_final_project_summary/        第十八步：最终总结 -> 项目质量门禁总报告
 ```
 
 ## 当前路线
@@ -39,6 +41,5 @@ Agent 最后负责任务拆解和多步调用
 后续每一步都会新建文件夹，例如：
 
 ```text
-17_human_review_workflow/
-18_final_project_summary/
+后续可继续扩展为真实雷达、通信、武器和电子战想定。
 ```

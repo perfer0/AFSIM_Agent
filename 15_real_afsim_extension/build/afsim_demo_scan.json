@@ -1,9 +1,33 @@
 {
-  "generated_at": "2026-07-10T15:53:17",
+  "generated_at": "2026-07-10T15:55:54",
   "demos_root": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos",
   "demos_root_exists": true,
   "results": {
     "radar": [
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\air_to_air\\prdata\\rules_utils.txt",
+        "relative_to_demos": "air_to_air\\prdata\\rules_utils.txt",
+        "score": 129,
+        "bytes": 94775
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\base_types\\processors\\ripr_agents\\aiss\\aiss_processor.txt",
+        "relative_to_demos": "base_types\\processors\\ripr_agents\\aiss\\aiss_processor.txt",
+        "score": 129,
+        "bytes": 40232
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\air_to_air\\rules\\shoot_it.txt",
+        "relative_to_demos": "air_to_air\\rules\\shoot_it.txt",
+        "score": 75,
+        "bytes": 16932
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\air_to_air\\sensor_observer.txt",
+        "relative_to_demos": "air_to_air\\sensor_observer.txt",
+        "score": 71,
+        "bytes": 24894
+      },
       {
         "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\electronic_warfare\\jam_strobe_tracking.txt",
         "relative_to_demos": "electronic_warfare\\jam_strobe_tracking.txt",
@@ -11,61 +35,79 @@
         "bytes": 13816
       },
       {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\air_to_air\\sensor_observer.txt",
-        "relative_to_demos": "air_to_air\\sensor_observer.txt",
-        "score": 67,
-        "bytes": 24894
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\script_demos\\script_demo_2.txt",
+        "relative_to_demos": "script_demos\\script_demo_2.txt",
+        "score": 69,
+        "bytes": 18356
       },
       {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\base_types\\sensors\\radar\\generic_fire_control_radar.txt",
-        "relative_to_demos": "base_types\\sensors\\radar\\generic_fire_control_radar.txt",
-        "score": 47,
-        "bytes": 9037
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\electronic_warfare\\test_false_targets\\platforms\\red_sam_battery_tactics.txt",
+        "relative_to_demos": "electronic_warfare\\test_false_targets\\platforms\\red_sam_battery_tactics.txt",
+        "score": 66,
+        "bytes": 10834
       },
       {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\air_to_air\\processors\\sensor_cue_processor.txt",
-        "relative_to_demos": "air_to_air\\processors\\sensor_cue_processor.txt",
-        "score": 46,
-        "bytes": 5046
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\base_types\\processors\\ripr_agents\\aiai\\aiai_processor.old.txt",
+        "relative_to_demos": "base_types\\processors\\ripr_agents\\aiai\\aiai_processor.old.txt",
+        "score": 64,
+        "bytes": 77617
       },
       {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\sensor_demos\\passive_detector_df_demo.txt",
-        "relative_to_demos": "sensor_demos\\passive_detector_df_demo.txt",
-        "score": 43,
-        "bytes": 16009
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\aea_iads\\processors\\red_sam_battery_tactics.txt",
+        "relative_to_demos": "aea_iads\\processors\\red_sam_battery_tactics.txt",
+        "score": 63,
+        "bytes": 10298
       },
       {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\swarm\\platforms\\uhf_ew_radar_sensor_platform.txt",
-        "relative_to_demos": "swarm\\platforms\\uhf_ew_radar_sensor_platform.txt",
-        "score": 39,
-        "bytes": 8059
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\sensor_demos\\passive_detector_demo.txt",
-        "relative_to_demos": "sensor_demos\\passive_detector_demo.txt",
-        "score": 37,
-        "bytes": 12486
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\electronic_warfare\\track_error.txt",
-        "relative_to_demos": "electronic_warfare\\track_error.txt",
-        "score": 35,
-        "bytes": 12728
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\sensor_demos\\coherent_sensor_demo.txt",
-        "relative_to_demos": "sensor_demos\\coherent_sensor_demo.txt",
-        "score": 34,
-        "bytes": 7693
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\base_types\\sensors\\radar\\generic_radar_10nm.txt",
-        "relative_to_demos": "base_types\\sensors\\radar\\generic_radar_10nm.txt",
-        "score": 29,
-        "bytes": 9716
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\cyber\\exfiltrate_demo\\platforms\\red_sam_battery_tactics.txt",
+        "relative_to_demos": "cyber\\exfiltrate_demo\\platforms\\red_sam_battery_tactics.txt",
+        "score": 63,
+        "bytes": 10297
       }
     ],
     "communications": [
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\space_operations\\scenarios\\starlink_autogen.txt",
+        "relative_to_demos": "space_operations\\scenarios\\starlink_autogen.txt",
+        "score": 1440,
+        "bytes": 199875
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\satellite_demos\\satellites\\orbit_nominal\\iridium.txt",
+        "relative_to_demos": "satellite_demos\\satellites\\orbit_nominal\\iridium.txt",
+        "score": 133,
+        "bytes": 26917
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\space_operations\\scenarios\\iridium.txt",
+        "relative_to_demos": "space_operations\\scenarios\\iridium.txt",
+        "score": 133,
+        "bytes": 26339
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\satellite_demos\\platforms\\satellite_based_navigation_system.txt",
+        "relative_to_demos": "satellite_demos\\platforms\\satellite_based_navigation_system.txt",
+        "score": 73,
+        "bytes": 19685
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\space_operations\\scenarios\\iridium_constellation.txt",
+        "relative_to_demos": "space_operations\\scenarios\\iridium_constellation.txt",
+        "score": 67,
+        "bytes": 14614
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\space_operations\\processors\\establish_link_processor.txt",
+        "relative_to_demos": "space_operations\\processors\\establish_link_processor.txt",
+        "score": 46,
+        "bytes": 12358
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\satellite_demos\\platforms\\iridium.txt",
+        "relative_to_demos": "satellite_demos\\platforms\\iridium.txt",
+        "score": 30,
+        "bytes": 12087
+      },
       {
         "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\space_operations\\lasercomm_scripted.txt",
         "relative_to_demos": "space_operations\\lasercomm_scripted.txt",
@@ -73,78 +115,66 @@
         "bytes": 6730
       },
       {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\space_operations\\scripts\\comm_link.txt",
-        "relative_to_demos": "space_operations\\scripts\\comm_link.txt",
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\space_operations\\scenarios\\sat_sensor_constellation.txt",
+        "relative_to_demos": "space_operations\\scenarios\\sat_sensor_constellation.txt",
+        "score": 28,
+        "bytes": 11487
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\space_operations\\platforms\\iridium_satellite.txt",
+        "relative_to_demos": "space_operations\\platforms\\iridium_satellite.txt",
         "score": 21,
-        "bytes": 10670
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\multiresolution_demos\\comm_demo.txt",
-        "relative_to_demos": "multiresolution_demos\\comm_demo.txt",
-        "score": 15,
-        "bytes": 2991
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\electronic_warfare\\comm_jamming.txt",
-        "relative_to_demos": "electronic_warfare\\comm_jamming.txt",
-        "score": 13,
-        "bytes": 11699
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\satellite_demos\\TLE\\x-comm_platforms.txt",
-        "relative_to_demos": "satellite_demos\\TLE\\x-comm_platforms.txt",
-        "score": 13,
-        "bytes": 2650
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\multiresolution_demos\\comm_with_command_chain_demo.txt",
-        "relative_to_demos": "multiresolution_demos\\comm_with_command_chain_demo.txt",
-        "score": 11,
-        "bytes": 3067
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\multiresolution_demos\\comms\\comm_include.txt",
-        "relative_to_demos": "multiresolution_demos\\comms\\comm_include.txt",
-        "score": 11,
-        "bytes": 1552
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\satellite_demos\\avionics\\comm\\GPSCommDef.txt",
-        "relative_to_demos": "satellite_demos\\avionics\\comm\\GPSCommDef.txt",
-        "score": 11,
-        "bytes": 5610
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\comm\\group_comm_example.txt",
-        "relative_to_demos": "comm\\group_comm_example.txt",
-        "score": 10,
-        "bytes": 4595
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\comm\\platforms\\detector.txt",
-        "relative_to_demos": "comm\\platforms\\detector.txt",
-        "score": 10,
-        "bytes": 3202
+        "bytes": 8980
       }
     ],
     "weapon": [
       {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\base_types\\processors\\quantum_agents\\aiww\\behavior_buddy_engage_weapon_task_target.txt",
-        "relative_to_demos": "base_types\\processors\\quantum_agents\\aiww\\behavior_buddy_engage_weapon_task_target.txt",
-        "score": 81,
-        "bytes": 21015
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\base_types\\weapons\\aam\\test_medium_range_missile_air_to_air_launch_computer_table.txt",
+        "relative_to_demos": "base_types\\weapons\\aam\\test_medium_range_missile_air_to_air_launch_computer_table.txt",
+        "score": 2652,
+        "bytes": 1641168
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\base_types\\weapons\\aam\\simple_blue_lr_a2a_rf_missile_air_to_air_launch_computer_table.txt",
+        "relative_to_demos": "base_types\\weapons\\aam\\simple_blue_lr_a2a_rf_missile_air_to_air_launch_computer_table.txt",
+        "score": 1770,
+        "bytes": 853429
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\behavior_tree\\weapons\\aam\\launch_computer_simple_mrm_table.txt",
+        "relative_to_demos": "behavior_tree\\weapons\\aam\\launch_computer_simple_mrm_table.txt",
+        "score": 489,
+        "bytes": 304865
       },
       {
         "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\air_to_air\\weapons\\aam\\mrm_launch_computer_results.1.1.txt",
         "relative_to_demos": "air_to_air\\weapons\\aam\\mrm_launch_computer_results.1.1.txt",
-        "score": 69,
+        "score": 115,
         "bytes": 34202
       },
       {
         "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\air_to_air\\weapons\\aam\\srm_launch_computer_results.1.1.txt",
         "relative_to_demos": "air_to_air\\weapons\\aam\\srm_launch_computer_results.1.1.txt",
-        "score": 65,
+        "score": 115,
         "bytes": 36924
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\base_types\\processors\\quantum_agents\\aiww\\behavior_buddy_engage_weapon_task_target.txt",
+        "relative_to_demos": "base_types\\processors\\quantum_agents\\aiww\\behavior_buddy_engage_weapon_task_target.txt",
+        "score": 84,
+        "bytes": 21015
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\air_to_air\\observer.txt",
+        "relative_to_demos": "air_to_air\\observer.txt",
+        "score": 60,
+        "bytes": 22355
+      },
+      {
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\air_to_air\\prdata\\rules_utils.txt",
+        "relative_to_demos": "air_to_air\\prdata\\rules_utils.txt",
+        "score": 60,
+        "bytes": 94775
       },
       {
         "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\base_types\\processors\\timeline_agents\\weapon_defs.txt",
@@ -153,47 +183,17 @@
         "bytes": 13644
       },
       {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\base_types\\weapons\\aam\\simple_blue_lr_a2a_rf_missile_air_to_air_launch_computer_table.txt",
-        "relative_to_demos": "base_types\\weapons\\aam\\simple_blue_lr_a2a_rf_missile_air_to_air_launch_computer_table.txt",
-        "score": 45,
-        "bytes": 853429
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\behavior_tree\\processors\\quantum_agents\\aiai\\selector_engage_weapon_task_target.txt",
-        "relative_to_demos": "behavior_tree\\processors\\quantum_agents\\aiai\\selector_engage_weapon_task_target.txt",
-        "score": 41,
-        "bytes": 11746
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\brawler\\processors\\quantum_agents\\behavior_engage_weapon_task_target.txt",
-        "relative_to_demos": "brawler\\processors\\quantum_agents\\behavior_engage_weapon_task_target.txt",
-        "score": 39,
-        "bytes": 11618
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\heatmap\\processors\\quantum_agents\\aiai\\behavior_engage_weapon_task_target.txt",
-        "relative_to_demos": "heatmap\\processors\\quantum_agents\\aiai\\behavior_engage_weapon_task_target.txt",
-        "score": 39,
-        "bytes": 11575
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\timeline\\processors\\quantum_agents\\aiai\\behavior_engage_weapon_task_target.txt",
-        "relative_to_demos": "timeline\\processors\\quantum_agents\\aiai\\behavior_engage_weapon_task_target.txt",
-        "score": 39,
-        "bytes": 11550
-      },
-      {
-        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\timeline_lead\\processors\\quantum_agents\\aiai\\behavior_engage_weapon_task_target.txt",
-        "relative_to_demos": "timeline_lead\\processors\\quantum_agents\\aiai\\behavior_engage_weapon_task_target.txt",
-        "score": 39,
-        "bytes": 11563
+        "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\engage\\scripts\\utility_scripts.txt",
+        "relative_to_demos": "engage\\scripts\\utility_scripts.txt",
+        "score": 48,
+        "bytes": 26850
       }
     ],
     "electronic_warfare": [
       {
         "path": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\demos\\base_types\\processors\\ripr_agents\\aijam\\aijam_processor.txt",
         "relative_to_demos": "base_types\\processors\\ripr_agents\\aijam\\aijam_processor.txt",
-        "score": 32,
+        "score": 34,
         "bytes": 28882
       },
       {

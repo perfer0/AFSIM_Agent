@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-07-10T15:56:26",
+  "project_quality_passed": true,
+  "capability_passed": true,
+  "capability_count": 11,
+  "offline_package_passed": true,
+  "demo_scan_passed": true,
+  "baseline_model_installed": true,
+  "human_review_training_passed": true,
+  "latest_git_log": "6705345 steps14-16: plan scenario expansion and model upgrades\n54c3dd9 step13: add capability review\ne2dd9b6 step12: add offline packaging workflow\n6780a68 step11: add project integration entrypoint\na286440 step10: add orchestration audit demo\n62eec2f step09: add afsim scenario skill\nb006ff9 step08: add mcp tool wrapper\n8b46ca2 step07: add agent loop demo\n487f3f8 step06: use local ollama model storage\ne297d52 step06: add local model deployment",
+  "overall_training_project_passed": true
+}
