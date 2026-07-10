@@ -1,0 +1,181 @@
+{
+  "generated_at": "2026-07-10T15:50:38",
+  "baseline": "EOIR reconnaissance with UAV, ground targets, sensor event output, local Ollama JSON drafting, Agent validation, and mission.exe verification.",
+  "scenario_types": [
+    {
+      "id": "eoir_recon",
+      "name": "EOIR 侦察",
+      "status": "implemented_baseline",
+      "priority": 1,
+      "required_components": [
+        "uav_eoir",
+        "ground_site",
+        "eoir_sensor_events"
+      ],
+      "required_knowledge": [
+        "EOIR imaging scripts",
+        "sensor event output",
+        "ground target placement"
+      ],
+      "new_validation_rules": [],
+      "risk": "low",
+      "next_action": "Keep as regression scenario for every future extension.",
+      "readiness_score": 19,
+      "ready_for_implementation": true
+    },
+    {
+      "id": "radar_search_track",
+      "name": "雷达搜索与跟踪",
+      "status": "planned",
+      "priority": 2,
+      "required_components": [
+        "airborne_radar_platform",
+        "radar_sensor",
+        "radar_event_outputs",
+        "track_targets"
+      ],
+      "required_knowledge": [
+        "radar sensor mode",
+        "track initiation/drop",
+        "radar event output"
+      ],
+      "new_validation_rules": [
+        "sensor type must be radar-capable",
+        "event_output must enable radar/track events"
+      ],
+      "risk": "medium",
+      "next_action": "Scan AFSIM demos for radar platform and sensor event patterns.",
+      "readiness_score": 6,
+      "ready_for_implementation": true
+    },
+    {
+      "id": "communications_link",
+      "name": "通信链路",
+      "status": "planned",
+      "priority": 3,
+      "required_components": [
+        "sender_platform",
+        "receiver_platform",
+        "comm_processor",
+        "comm_event_outputs"
+      ],
+      "required_knowledge": [
+        "communication processor",
+        "message routing",
+        "link availability"
+      ],
+      "new_validation_rules": [
+        "sender and receiver must both define compatible comm systems"
+      ],
+      "risk": "medium",
+      "next_action": "Find AFSIM comm demos and extract minimal sender/receiver script.",
+      "readiness_score": 5,
+      "ready_for_implementation": true
+    },
+    {
+      "id": "multi_platform_coordination",
+      "name": "多平台协同",
+      "status": "planned",
+      "priority": 6,
+      "required_components": [
+        "multiple_blue_platforms",
+        "target_set",
+        "coordination_timeline"
+      ],
+      "required_knowledge": [
+        "multi-route timing",
+        "shared target area",
+        "event correlation"
+      ],
+      "new_validation_rules": [
+        "platform names must be unique",
+        "timeline conflicts must be checked"
+      ],
+      "risk": "medium",
+      "next_action": "Use EOIR baseline and add a second UAV after radar/comm components exist.",
+      "readiness_score": 2,
+      "ready_for_implementation": false
+    },
+    {
+      "id": "weapon_engagement",
+      "name": "武器交战",
+      "status": "planned",
+      "priority": 4,
+      "required_components": [
+        "shooter",
+        "target",
+        "weapon",
+        "weapon_event_outputs"
+      ],
+      "required_knowledge": [
+        "weapon release",
+        "fire control",
+        "target side constraints",
+        "endgame events"
+      ],
+      "new_validation_rules": [
+        "weapon platform must reference a valid target side",
+        "engagement timeline must be bounded"
+      ],
+      "risk": "high",
+      "next_action": "Defer until radar/track scenario is stable.",
+      "readiness_score": 1,
+      "ready_for_implementation": false
+    },
+    {
+      "id": "electronic_warfare",
+      "name": "电子战/干扰",
+      "status": "planned",
+      "priority": 5,
+      "required_components": [
+        "jammer",
+        "victim_sensor",
+        "emitter",
+        "ew_event_outputs"
+      ],
+      "required_knowledge": [
+        "RF propagation",
+        "jamming effect",
+        "sensor degradation events"
+      ],
+      "new_validation_rules": [
+        "jammer and victim must share compatible bands or modes"
+      ],
+      "risk": "high",
+      "next_action": "Build only after radar scenario and RF snippets are understood.",
+      "readiness_score": 0,
+      "ready_for_implementation": false
+    }
+  ],
+  "recommended_next": {
+    "id": "radar_search_track",
+    "name": "雷达搜索与跟踪",
+    "status": "planned",
+    "priority": 2,
+    "required_components": [
+      "airborne_radar_platform",
+      "radar_sensor",
+      "radar_event_outputs",
+      "track_targets"
+    ],
+    "required_knowledge": [
+      "radar sensor mode",
+      "track initiation/drop",
+      "radar event output"
+    ],
+    "new_validation_rules": [
+      "sensor type must be radar-capable",
+      "event_output must enable radar/track events"
+    ],
+    "risk": "medium",
+    "next_action": "Scan AFSIM demos for radar platform and sensor event patterns.",
+    "readiness_score": 6,
+    "ready_for_implementation": true
+  },
+  "quality_gate": {
+    "has_baseline": true,
+    "has_radar_candidate": true,
+    "has_comm_candidate": true,
+    "passed": true
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "current_baseline": {
+    "model": "qwen2.5:0.5b",
+    "purpose": "Fast local chain validation and JSON generation smoke tests.",
+    "status": "installed"
+  },
+  "hardware_note": "User machine: Y9000P with RTX 5060-class GPU. Start with 0.5B for stability, then evaluate 7B models before larger models.",
+  "candidate_models": [
+    {
+      "model": "qwen2.5:7b",
+      "tier": "recommended_next",
+      "expected_use": "Better Chinese instruction following and scenario JSON quality.",
+      "risk": "medium download size; verify disk before pull",
+      "pull_command": "ollama pull qwen2.5:7b"
+    },
+    {
+      "model": "qwen2.5-coder:7b",
+      "tier": "code_json_candidate",
+      "expected_use": "Better structured output and code-like schema repair.",
+      "risk": "may be less domain fluent than instruct model",
+      "pull_command": "ollama pull qwen2.5-coder:7b"
+    },
+    {
+      "model": "qwen2.5:14b",
+      "tier": "later",
+      "expected_use": "More complex multi-step scenario reasoning.",
+      "risk": "larger storage and VRAM pressure",
+      "pull_command": "ollama pull qwen2.5:14b"
+    }
+  ],
+  "upgrade_gate": [
+    "OLLAMA_MODELS must be D:/AFsim/Agent/ollama/models",
+    "ollama list must show the candidate model",
+    "Step 07 Agent must return draft_provider=ollama",
+    "mission.exe exit code must be 0",
+    "Step 13 capability review must still pass"
+  ]
+}

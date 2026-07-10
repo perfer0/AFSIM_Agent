@@ -18,6 +18,9 @@
 11_project_integration/          第十一步：项目入口 -> manifest/status/run/report
 12_offline_packaging/            第十二步：离线打包 -> 源码包/清单/校验/恢复说明
 13_capability_review/            第十三步：能力复盘 -> 证据化评估当前能力边界
+14_next_scenario_types/          第十四步：多想定类型 -> 类型矩阵/组件需求/优先级
+15_real_afsim_extension/         第十五步：真实扩展 -> 扫描 AFSIM demo 形成证据
+16_model_upgrade/                第十六步：模型升级 -> 7B/14B 候选与验证门禁
 ```
 
 ## 当前路线
@@ -36,7 +39,6 @@ Agent 最后负责任务拆解和多步调用
 后续每一步都会新建文件夹，例如：
 
 ```text
-14_next_scenario_types/
-15_real_afsim_extension/
-16_model_upgrade/
+17_human_review_workflow/
+18_final_project_summary/
 ```

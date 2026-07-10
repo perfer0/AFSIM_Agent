@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-07-10T15:54:15",
+  "ollama_models_path": "D:\\AFsim\\Agent\\ollama\\models",
+  "ollama_models_exists": true,
+  "ollama": {
+    "command": [
+      "C:\\Users\\lenovo\\AppData\\Local\\Programs\\Ollama\\ollama.exe",
+      "list"
+    ],
+    "cwd": "D:\\AFsim\\Agent",
+    "returncode": 0,
+    "stdout": "NAME            ID              SIZE      MODIFIED     \nqwen2.5:0.5b    a8b0c5157701    397 MB    24 hours ago",
+    "stderr": "",
+    "models": [
+      "qwen2.5:0.5b"
+    ]
+  },
+  "baseline_installed": true,
+  "candidates": [
+    {
+      "model": "qwen2.5:7b",
+      "tier": "recommended_next",
+      "expected_use": "Better Chinese instruction following and scenario JSON quality.",
+      "risk": "medium download size; verify disk before pull",
+      "pull_command": "ollama pull qwen2.5:7b",
+      "installed": false
+    },
+    {
+      "model": "qwen2.5-coder:7b",
+      "tier": "code_json_candidate",
+      "expected_use": "Better structured output and code-like schema repair.",
+      "risk": "may be less domain fluent than instruct model",
+      "pull_command": "ollama pull qwen2.5-coder:7b",
+      "installed": false
+    },
+    {
+      "model": "qwen2.5:14b",
+      "tier": "later",
+      "expected_use": "More complex multi-step scenario reasoning.",
+      "risk": "larger storage and VRAM pressure",
+      "pull_command": "ollama pull qwen2.5:14b",
+      "installed": false
+    }
+  ]
+}
