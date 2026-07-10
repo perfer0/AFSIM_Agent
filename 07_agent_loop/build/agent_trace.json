@@ -1,14 +1,14 @@
 {
   "events": [
     {
-      "time": "2026-07-10T15:22:33",
+      "time": "2026-07-10T15:28:31",
       "step": "plan",
       "status": "ok",
       "detail": "plan: retrieve knowledge, draft JSON, validate, repair if needed, generate AFSIM, run mission",
       "data": {}
     },
     {
-      "time": "2026-07-10T15:22:33",
+      "time": "2026-07-10T15:28:31",
       "step": "retrieve",
       "status": "ok",
       "detail": "retrieved local AFSIM knowledge snippets",
@@ -30,7 +30,7 @@
       }
     },
     {
-      "time": "2026-07-10T15:22:34",
+      "time": "2026-07-10T15:28:35",
       "step": "draft",
       "status": "ok",
       "detail": "local model produced initial scenario JSON",
@@ -39,14 +39,14 @@
       }
     },
     {
-      "time": "2026-07-10T15:22:34",
+      "time": "2026-07-10T15:28:35",
       "step": "validate",
       "status": "ok",
       "detail": "scenario JSON passed validation on attempt 0",
       "data": {}
     },
     {
-      "time": "2026-07-10T15:22:34",
+      "time": "2026-07-10T15:28:35",
       "step": "generate",
       "status": "ok",
       "detail": "generated AFSIM main and scenario files",
@@ -55,7 +55,7 @@
       }
     },
     {
-      "time": "2026-07-10T15:22:34",
+      "time": "2026-07-10T15:28:35",
       "step": "run",
       "status": "ok",
       "detail": "mission.exe finished",

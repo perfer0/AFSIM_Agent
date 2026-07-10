@@ -14,6 +14,7 @@
 07_agent_loop/                   第七步：Agent 闭环 -> 检索/生成/校验/修复/仿真
 08_mcp_tools/                    第八步：MCP 工具 -> 标准协议调用本地 Agent
 09_custom_skills/                第九步：Skill -> 固化 AFSIM Agent 工作流
+10_agent_orchestration/          第十步：总控编排 -> Skill/MCP/Agent/AFSIM 审计
 ```
 
 ## 当前路线
@@ -32,7 +33,7 @@ Agent 最后负责任务拆解和多步调用
 后续每一步都会新建文件夹，例如：
 
 ```text
-10_agent_orchestration/
 11_project_integration/
 12_offline_packaging/
+13_capability_review/
 ```

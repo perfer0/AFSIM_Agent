@@ -1,0 +1,15 @@
+{
+  "env_check_returncode": 0,
+  "mcp_returncode": 0,
+  "draft_provider": "ollama",
+  "run_exit_code": 0,
+  "required_events_present": true,
+  "artifacts_exist": {
+    "mcp_server": true,
+    "mcp_request": true,
+    "mcp_result": true,
+    "agent_trace": true,
+    "agent_scenario": true
+  },
+  "passed": true
+}
