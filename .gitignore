@@ -4,9 +4,11 @@
 **/build/**/*.log
 **/*.aer
 **/*.evt
+!21_event_evidence_analysis/tests/fixtures/*.evt
 **/build/*.zip
 19_engineering_baseline/build/runs/
 19_engineering_baseline/build/scope_test/
+22_reproducible_experiments/build/runs/
 
 # Python cache
 __pycache__/

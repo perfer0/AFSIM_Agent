@@ -5,5 +5,11 @@
   "fallback_forbidden": true,
   "benchmark_exists": false,
   "engineering_gate_passed": false,
+  "event_evidence_exists": true,
+  "event_evidence_passed": true,
+  "experiment_exists": true,
+  "experiment_passed": true,
+  "core_quality_exists": true,
+  "core_quality_passed": true,
   "passed": false
 }

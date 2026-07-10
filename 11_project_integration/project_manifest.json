@@ -26,6 +26,21 @@
       "name": "Orchestration",
       "path": "10_agent_orchestration/orchestrator.py",
       "purpose": "Run environment checks, MCP, Agent, AFSIM, and audit outputs."
+    },
+    {
+      "name": "EventEvidence",
+      "path": "21_event_evidence_analysis/event_evidence.py",
+      "purpose": "Parse AFSIM .evt output and verify mission-effect evidence."
+    },
+    {
+      "name": "Experiments",
+      "path": "22_reproducible_experiments/experiment_runner.py",
+      "purpose": "Run controlled AFSIM parameter sweeps with explicit random seeds."
+    },
+    {
+      "name": "QualityGate",
+      "path": "23_project_quality_gate/quality_gate.py",
+      "purpose": "Run model-independent core checks and production acceptance checks."
     }
   ],
   "quality_gates": [
@@ -33,6 +48,9 @@
     "production runs do not use rules fallback",
     "draft_provider is ollama",
     "mission.exe exit code is 0",
+    "AFSIM event evidence profile passed is true",
+    "reproducible experiment quality gate passed is true",
+    "core project quality gate passed is true",
     "orchestration audit passed is true"
   ]
 }

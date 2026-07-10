@@ -1,0 +1,4 @@
+0.00000 SENSOR_TURNED_ON uav Sensor: eoir Type: GENERIC_EOIR
+1.00000 SENSOR_DETECTION_ATTEMPT uav target_01 Sensor: eoir Mode: default Beam: 1 \
+  Rcvr->Tgt: Range: 100 km Rcvr_Angle_Limits_Exceeded Rcvr_Masked_By_Horizon Pd: 0 RequiredPd: 0.5 Detected: 0
+3.00000 SENSOR_TURNED_OFF uav Sensor: eoir Type: GENERIC_EOIR

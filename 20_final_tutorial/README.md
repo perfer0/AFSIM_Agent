@@ -172,4 +172,4 @@ git push origin main
 - Ollama Generate API: <https://docs.ollama.com/api/generate>
 - Ollama Qwen2.5 模型页: <https://ollama.com/library/qwen2.5>
 
-完整问题清单见 [避坑手册](PITFALLS.md)，验收标准见 [工程验收表](ACCEPTANCE.md)。
+完整问题清单见 [避坑手册](PITFALLS.md)，验收标准见 [工程验收表](ACCEPTANCE.md)，当前优化优先级见 [项目差距审计](PROJECT_GAP_ANALYSIS.md)，长期学习见 [专家能力路线](EXPERT_ROADMAP.md)，做实验时使用 [实验记录模板](EXPERIMENT_TEMPLATE.md)。

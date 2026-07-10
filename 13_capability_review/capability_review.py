@@ -87,6 +87,54 @@ CAPABILITIES = [
         "json_checks": [{"path": "12_offline_packaging/build/package_verify.json", "key": "passed", "expected": True}],
         "meaning": "能生成离线源码包、校验清单和恢复说明，并排除模型 blob。",
     },
+    {
+        "id": "event_evidence",
+        "name": "AFSIM 事件效果验收",
+        "evidence": [
+            "21_event_evidence_analysis/event_evidence.py",
+            "21_event_evidence_analysis/build/reference_verification.json",
+        ],
+        "json_checks": [
+            {
+                "path": "21_event_evidence_analysis/build/reference_verification.json",
+                "key_path": ["verification", "passed"],
+                "expected": True,
+            }
+        ],
+        "meaning": "能解析 .evt，将探测、目标覆盖和航迹生命周期转成任务效果证据。",
+    },
+    {
+        "id": "reproducible_experiments",
+        "name": "可重复参数实验",
+        "evidence": [
+            "22_reproducible_experiments/experiment_runner.py",
+            "22_reproducible_experiments/build/experiment_report.json",
+        ],
+        "json_checks": [
+            {
+                "path": "22_reproducible_experiments/build/experiment_report.json",
+                "key": "quality_gate_passed",
+                "expected": True,
+            }
+        ],
+        "meaning": "能控制参数和随机种子，批量运行 AFSIM，并汇总任务指标与变异。",
+    },
+    {
+        "id": "project_quality_gate",
+        "name": "统一项目质量门禁",
+        "evidence": [
+            "23_project_quality_gate/quality_gate.py",
+            "23_project_quality_gate/build/core_quality_report.json",
+        ],
+        "json_checks": [
+            {
+                "path": "23_project_quality_gate/build/core_quality_report.json",
+                "key": "passed",
+                "expected": True,
+            }
+        ],
+        "meaning": "能用一个入口重复执行编译、JSON、单元测试、事件验收和参数实验。",
+    },
 ]
 
 
@@ -97,7 +145,7 @@ NEXT_CAPABILITIES = [
     },
     {
         "name": "更强本地模型",
-        "why": "qwen2.5:0.5b 适合验证链路，但复杂想定需要 7B/14B 级模型和更强 JSON 修复能力。",
+        "why": "qwen2.5:0.5b 已实测不满足工程要求；需要由 7B 候选模型通过固定回归集后才能成为生产基线。",
     },
     {
         "name": "真实 AFSIM 组件映射",
@@ -106,6 +154,10 @@ NEXT_CAPABILITIES = [
     {
         "name": "人机协同审查",
         "why": "复杂军事仿真不能只靠模型，需要人工确认约束、参数和战术意图。",
+    },
+    {
+        "name": "随机实验与统计推断",
+        "why": "当前已有单次事件指标，下一步要管理随机种子、重复实验、参数扫描和置信区间。",
     },
 ]
 

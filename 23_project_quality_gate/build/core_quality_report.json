@@ -1,0 +1,125 @@
+{
+  "generated_at": "2026-07-10T18:25:18",
+  "mode": "core",
+  "checks": [
+    {
+      "name": "python_compile",
+      "command": [
+        "C:\\Users\\lenovo\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "D:\\AFsim\\Agent"
+      ],
+      "cwd": "D:\\AFsim\\Agent",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.149,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "json_parse",
+      "files_checked": 101,
+      "errors": [],
+      "elapsed_seconds": 0.518,
+      "passed": true
+    },
+    {
+      "name": "step19_tests",
+      "command": [
+        "C:\\Users\\lenovo\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "D:\\AFsim\\Agent\\19_engineering_baseline",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.317,
+      "stdout": "",
+      "stderr": "test_production_and_smoke_models_are_separate (test_engineering.ConfigurationTests.test_production_and_smoke_models_are_separate) ... ok\ntest_chinese_eoir_request_retrieves_platform_evidence (test_engineering.RetrievalTests.test_chinese_eoir_request_retrieves_platform_evidence) ... ok\ntest_event_pipe_requires_aer_and_distinct_file (test_engineering.ScenarioValidationTests.test_event_pipe_requires_aer_and_distinct_file) ... ok\ntest_execute_script_rejects_combined_or_single_quote_commands (test_engineering.ScenarioValidationTests.test_execute_script_rejects_combined_or_single_quote_commands) ... ok\ntest_rule_draft_is_valid (test_engineering.ScenarioValidationTests.test_rule_draft_is_valid) ... ok\ntest_empty_request_is_rejected (test_engineering.ScopeGateTests.test_empty_request_is_rejected) ... ok\ntest_eoir_request_is_allowed (test_engineering.ScopeGateTests.test_eoir_request_is_allowed) ... ok\ntest_radar_request_is_rejected (test_engineering.ScopeGateTests.test_radar_request_is_rejected) ... ok\ntest_missing_three_windows_fails (test_engineering.SemanticGateTests.test_missing_three_windows_fails) ... ok\ntest_parameter_fidelity_passes_for_matching_values (test_engineering.SemanticGateTests.test_parameter_fidelity_passes_for_matching_values) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.022s\n\nOK",
+      "passed": true
+    },
+    {
+      "name": "step21_tests",
+      "command": [
+        "C:\\Users\\lenovo\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "D:\\AFsim\\Agent\\21_event_evidence_analysis",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.099,
+      "stdout": "",
+      "stderr": "test_failure_profile_is_rejected_with_reason (test_event_evidence.EventParserTests.test_failure_profile_is_rejected_with_reason) ... ok\ntest_multiline_detection_record_is_parsed (test_event_evidence.EventParserTests.test_multiline_detection_record_is_parsed) ... ok\ntest_success_metrics_and_profile_pass (test_event_evidence.EventParserTests.test_success_metrics_and_profile_pass) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.012s\n\nOK",
+      "passed": true
+    },
+    {
+      "name": "step22_tests",
+      "command": [
+        "C:\\Users\\lenovo\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "D:\\AFsim\\Agent\\22_reproducible_experiments",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.185,
+      "stdout": "",
+      "stderr": "test_aggregate_computes_mean_and_sample_stdev (test_experiment_runner.ExperimentTests.test_aggregate_computes_mean_and_sample_stdev) ... ok\ntest_random_seed_is_rendered_in_afsim_main (test_experiment_runner.ExperimentTests.test_random_seed_is_rendered_in_afsim_main) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\n\nOK",
+      "passed": true
+    },
+    {
+      "name": "reference_event_evidence",
+      "command": [
+        "C:\\Users\\lenovo\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "event_evidence.py",
+        "verify",
+        "D:\\AFsim\\Agent\\01_json_to_afsim_main\\build\\output\\eoir_demo_generated.evt",
+        "--profile",
+        "profiles/eoir_reference_demo.json",
+        "--output",
+        "build/reference_verification.json",
+        "--markdown",
+        "build/reference_verification.md"
+      ],
+      "cwd": "D:\\AFsim\\Agent\\21_event_evidence_analysis",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.141,
+      "stdout": "Event evidence passed: True\nReport: D:\\AFsim\\Agent\\21_event_evidence_analysis\\build\\reference_verification.json",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "reproducible_experiment",
+      "command": [
+        "C:\\Users\\lenovo\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "experiment_runner.py",
+        "run"
+      ],
+      "cwd": "D:\\AFsim\\Agent\\22_reproducible_experiments",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 3.606,
+      "stdout": "Running altitude=30000 ft, seed=13579...\nRunning altitude=30000 ft, seed=24680...\nRunning altitude=30000 ft, seed=97531...\nRunning altitude=45000 ft, seed=13579...\nRunning altitude=45000 ft, seed=24680...\nRunning altitude=45000 ft, seed=97531...\nRunning altitude=60000 ft, seed=13579...\nRunning altitude=60000 ft, seed=24680...\nRunning altitude=60000 ft, seed=97531...\nReport: D:\\AFsim\\Agent\\22_reproducible_experiments\\build\\experiment_report.md\nQuality gate passed: True",
+      "stderr": "",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

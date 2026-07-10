@@ -17,6 +17,8 @@ BUILD = STEP_ROOT / "build"
 CONFIG_PATH = STEP_ROOT / "engineering_config.json"
 CASES_PATH = STEP_ROOT / "benchmark_cases.json"
 AGENT = ROOT / "07_agent_loop" / "agent_loop.py"
+EVENT_ANALYZER = ROOT / "21_event_evidence_analysis" / "event_evidence.py"
+EVENT_PROFILE = ROOT / "21_event_evidence_analysis" / "profiles" / "eoir_engineering_minimum.json"
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -191,6 +193,33 @@ def run_case(model: str, case: dict[str, Any], config: dict[str, Any]) -> dict[s
     provider = scenario.get("draft_provider")
     no_fallback = provider is None or provider in {"ollama", "ollama_repair"}
     expected_rejection = case["expect"].get("expected_rejection") is True
+    evidence_report_path = case_dir / "event_evidence.json"
+    evidence_passed = None
+    evidence_returncode = None
+    if not expected_rejection and result.returncode == 0 and scenario:
+        event_file = case_dir / scenario.get("event_output", {}).get("file", "")
+        evidence_run = subprocess.run(
+            [
+                sys.executable,
+                str(EVENT_ANALYZER),
+                "verify",
+                str(event_file),
+                "--profile",
+                str(EVENT_PROFILE),
+                "--output",
+                str(evidence_report_path),
+                "--markdown",
+                str(case_dir / "event_evidence.md"),
+            ],
+            cwd=str(ROOT / "21_event_evidence_analysis"),
+            text=True,
+            capture_output=True,
+            check=False,
+            timeout=60,
+        )
+        evidence_returncode = evidence_run.returncode
+        if evidence_report_path.exists():
+            evidence_passed = load_json(evidence_report_path).get("verification", {}).get("passed")
     if expected_rejection:
         passed = result.returncode == 1 and summary["scope_rejected"] and not scenario
     else:
@@ -198,6 +227,7 @@ def run_case(model: str, case: dict[str, Any], config: dict[str, Any]) -> dict[s
             result.returncode == 0
             and summary["validation_passed"]
             and summary["run_exit_code"] == 0
+            and evidence_passed is True
             and provider in {"ollama", "ollama_repair"}
             and no_fallback
             and checks
@@ -212,6 +242,8 @@ def run_case(model: str, case: dict[str, Any], config: dict[str, Any]) -> dict[s
         "draft_provider": provider,
         "no_rules_fallback": no_fallback,
         "expected_rejection": expected_rejection,
+        "event_evidence_passed": evidence_passed,
+        "event_evidence_returncode": evidence_returncode,
         **summary,
         "semantic_checks": checks,
         "generation": scenario.get("_generation", {}),
@@ -219,6 +251,7 @@ def run_case(model: str, case: dict[str, Any], config: dict[str, Any]) -> dict[s
             "scenario": str(scenario_path),
             "trace": str(case_dir / "agent_trace.json"),
             "main": str(case_dir / "main_generated.txt"),
+            "event_evidence": str(evidence_report_path),
         },
         "stdout": result.stdout.strip(),
         "stderr": result.stderr.strip(),
@@ -252,7 +285,8 @@ def render_report(report: dict[str, Any]) -> str:
                 f"- `{model['model']}` / `{case['case_id']}`: "
                 f"`{'PASS' if case['passed'] else 'FAIL'}`, {case['elapsed_seconds']}s, "
                 f"validate={case['validation_passed']}, mission={case['run_exit_code']}, "
-                f"repair={case['repair_count']}, failed_checks={failed or 'none'}"
+                f"evidence={case['event_evidence_passed']}, repair={case['repair_count']}, "
+                f"failed_checks={failed or 'none'}"
             )
     lines.extend([
         "",

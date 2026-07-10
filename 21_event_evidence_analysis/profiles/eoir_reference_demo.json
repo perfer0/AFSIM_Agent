@@ -1,0 +1,33 @@
+{
+  "name": "eoir_reference_demo",
+  "version": 1,
+  "description": "Strict regression profile for the deterministic Step 01 EOIR reference run.",
+  "event_minimums": {
+    "SENSOR_TURNED_ON": 2,
+    "SENSOR_DETECTION_ATTEMPT": 800,
+    "SENSOR_TRACK_INITIATED": 7,
+    "SENSOR_TRACK_DROPPED": 7,
+    "SENSOR_TURNED_OFF": 2
+  },
+  "metric_minimums": {
+    "successful_detections": 90,
+    "unique_targets_attempted": 9,
+    "unique_targets_detected": 7,
+    "tracks_initiated": 7,
+    "tracks_dropped": 7
+  },
+  "metric_maximums": {
+    "open_track_balance": 0
+  },
+  "required_detected_targets": [
+    "sr_target_01",
+    "sr_target_01a",
+    "sr_target_02",
+    "sr_target_03",
+    "sr_target_04",
+    "lr_target_01"
+  ],
+  "required_undetected_targets": [
+    "sr_target_05_no_see"
+  ]
+}

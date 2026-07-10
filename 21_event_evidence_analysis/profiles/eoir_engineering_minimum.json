@@ -1,0 +1,17 @@
+{
+  "name": "eoir_engineering_minimum",
+  "version": 1,
+  "description": "Minimum outcome gate for a generated EOIR reconnaissance scenario.",
+  "event_minimums": {
+    "SENSOR_TURNED_ON": 1,
+    "SENSOR_DETECTION_ATTEMPT": 1,
+    "SENSOR_TRACK_INITIATED": 1,
+    "SENSOR_TURNED_OFF": 1
+  },
+  "metric_minimums": {
+    "successful_detections": 1,
+    "unique_targets_detected": 1,
+    "tracks_initiated": 1
+  },
+  "metric_maximums": {}
+}

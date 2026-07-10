@@ -113,6 +113,7 @@ SCENARIO_SCHEMA = {
             },
             "required": ["value", "unit"],
         },
+        "random_seed": {"type": "integer", "minimum": 1, "maximum": 2147483647},
     },
     "required": [
         "name", "description", "platform_type_refs", "actors", "target_set_refs",

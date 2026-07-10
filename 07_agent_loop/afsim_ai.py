@@ -190,6 +190,8 @@ def validate_scenario(data: dict) -> list[str]:
         errors.append("end_time.value must be an integer")
     if end_time.get("unit") not in VALID_TIME_UNITS:
         errors.append(f"end_time.unit must be one of: {sorted(VALID_TIME_UNITS)}")
+    if "random_seed" in data and (not isinstance(data["random_seed"], int) or data["random_seed"] <= 0):
+        errors.append("random_seed must be a positive integer")
     return errors
 
 
@@ -300,7 +302,10 @@ def render_main(data: dict, platform_types: dict, scenario_filename: str) -> str
     )
     for event_name in event_set["enabled_events"]:
         lines.append(f"   enable {event_name}")
-    lines.extend(["end_event_output", "", f"end_time {data['end_time']['value']} {data['end_time']['unit']}", ""])
+    lines.extend(["end_event_output", ""])
+    if "random_seed" in data:
+        lines.extend([f"random_seed {data['random_seed']}", ""])
+    lines.extend([f"end_time {data['end_time']['value']} {data['end_time']['unit']}", ""])
     return "\n".join(lines)
 
 

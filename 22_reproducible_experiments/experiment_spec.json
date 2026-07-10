@@ -1,0 +1,24 @@
+{
+  "name": "eoir_altitude_seed_sweep_v1",
+  "question": "How does UAV altitude affect EOIR detection outcomes in the reference geometry?",
+  "hypothesis": "Changing altitude changes line-of-sight geometry, range, and EOIR detection outcomes.",
+  "factor": {
+    "name": "altitude_ft",
+    "values": [30000, 45000, 60000]
+  },
+  "random_seeds": [13579, 24680, 97531],
+  "controlled_values": {
+    "position": "34:30:00n 116:00w",
+    "speed": "350 kts",
+    "heading": "0 deg",
+    "target_set_ref": "eoir_short_long_targets",
+    "end_time": "20 min"
+  },
+  "metrics": [
+    "successful_detections",
+    "detection_success_rate",
+    "unique_targets_detected",
+    "tracks_initiated",
+    "first_detection_seconds"
+  ]
+}

@@ -20,6 +20,7 @@
     "require_schema_validation": true,
     "require_semantic_checks": true,
     "require_mission_exit_zero": true,
+    "require_event_evidence": true,
     "forbid_rule_fallback": true
   }
 }

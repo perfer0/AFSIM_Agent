@@ -1,0 +1,283 @@
+{
+  "summary": {
+    "generated_at": "2026-07-10T18:25:14",
+    "source": {
+      "path": "D:\\AFsim\\Agent\\01_json_to_afsim_main\\build\\output\\eoir_demo_generated.evt",
+      "bytes": 992971,
+      "sha256": "9396fa716d941848a65714fdd38afdb6474c72467583a3a63e37c7b06a38cf7e"
+    },
+    "record_count": 1670,
+    "first_event_seconds": 60.0,
+    "last_event_seconds": 600.0,
+    "event_counts": {
+      "SENSOR_DETECTION_ATTEMPT": 1638,
+      "SENSOR_DETECTION_CHANGED": 14,
+      "SENSOR_TRACK_DROPPED": 7,
+      "SENSOR_TRACK_INITIATED": 7,
+      "SENSOR_TURNED_OFF": 2,
+      "SENSOR_TURNED_ON": 2
+    },
+    "metrics": {
+      "detection_attempts": 1638,
+      "successful_detections": 90,
+      "detection_success_rate": 0.054945,
+      "unique_targets_attempted": 9,
+      "unique_targets_detected": 7,
+      "target_detection_coverage": 0.777778,
+      "tracks_initiated": 7,
+      "tracks_dropped": 7,
+      "open_track_balance": 0,
+      "sensor_turned_on": 2,
+      "sensor_turned_off": 2
+    },
+    "targets": {
+      "lr_target_01": {
+        "attempts": 182,
+        "successful_detections": 25,
+        "first_detection_seconds": 448.0,
+        "last_detection_seconds": 496.0,
+        "tracks_initiated": 1,
+        "tracks_dropped": 1,
+        "first_track_seconds": 448.0,
+        "minimum_range_km": 160.528,
+        "maximum_pd": 1.0
+      },
+      "sr_target_01": {
+        "attempts": 182,
+        "successful_detections": 11,
+        "first_detection_seconds": 146.0,
+        "last_detection_seconds": 166.0,
+        "tracks_initiated": 1,
+        "tracks_dropped": 1,
+        "first_track_seconds": 146.0,
+        "minimum_range_km": 71.1611,
+        "maximum_pd": 1.0
+      },
+      "sr_target_01a": {
+        "attempts": 182,
+        "successful_detections": 11,
+        "first_detection_seconds": 148.0,
+        "last_detection_seconds": 168.0,
+        "tracks_initiated": 1,
+        "tracks_dropped": 1,
+        "first_track_seconds": 148.0,
+        "minimum_range_km": 71.1589,
+        "maximum_pd": 1.0
+      },
+      "sr_target_02": {
+        "attempts": 182,
+        "successful_detections": 11,
+        "first_detection_seconds": 166.0,
+        "last_detection_seconds": 186.0,
+        "tracks_initiated": 1,
+        "tracks_dropped": 1,
+        "first_track_seconds": 166.0,
+        "minimum_range_km": 71.1344,
+        "maximum_pd": 1.0
+      },
+      "sr_target_02_nosee_01": {
+        "attempts": 182,
+        "successful_detections": 0,
+        "first_detection_seconds": null,
+        "last_detection_seconds": null,
+        "tracks_initiated": 0,
+        "tracks_dropped": 0,
+        "first_track_seconds": null,
+        "minimum_range_km": 63.7834,
+        "maximum_pd": 0.0
+      },
+      "sr_target_02_nosee_02": {
+        "attempts": 182,
+        "successful_detections": 10,
+        "first_detection_seconds": 170.0,
+        "last_detection_seconds": 188.0,
+        "tracks_initiated": 1,
+        "tracks_dropped": 1,
+        "first_track_seconds": 170.0,
+        "minimum_range_km": 80.0266,
+        "maximum_pd": 1.0
+      },
+      "sr_target_03": {
+        "attempts": 182,
+        "successful_detections": 11,
+        "first_detection_seconds": 188.0,
+        "last_detection_seconds": 208.0,
+        "tracks_initiated": 1,
+        "tracks_dropped": 1,
+        "first_track_seconds": 188.0,
+        "minimum_range_km": 71.1079,
+        "maximum_pd": 1.0
+      },
+      "sr_target_04": {
+        "attempts": 182,
+        "successful_detections": 11,
+        "first_detection_seconds": 208.0,
+        "last_detection_seconds": 228.0,
+        "tracks_initiated": 1,
+        "tracks_dropped": 1,
+        "first_track_seconds": 208.0,
+        "minimum_range_km": 71.081,
+        "maximum_pd": 1.0
+      },
+      "sr_target_05_no_see": {
+        "attempts": 182,
+        "successful_detections": 0,
+        "first_detection_seconds": null,
+        "last_detection_seconds": null,
+        "tracks_initiated": 0,
+        "tracks_dropped": 0,
+        "first_track_seconds": null,
+        "minimum_range_km": 71.2052,
+        "maximum_pd": 0.0
+      }
+    },
+    "attempted_targets": [
+      "lr_target_01",
+      "sr_target_01",
+      "sr_target_01a",
+      "sr_target_02",
+      "sr_target_02_nosee_01",
+      "sr_target_02_nosee_02",
+      "sr_target_03",
+      "sr_target_04",
+      "sr_target_05_no_see"
+    ],
+    "detected_targets": [
+      "lr_target_01",
+      "sr_target_01",
+      "sr_target_01a",
+      "sr_target_02",
+      "sr_target_02_nosee_02",
+      "sr_target_03",
+      "sr_target_04"
+    ],
+    "tracked_targets": [
+      "lr_target_01",
+      "sr_target_01",
+      "sr_target_01a",
+      "sr_target_02",
+      "sr_target_02_nosee_02",
+      "sr_target_03",
+      "sr_target_04"
+    ],
+    "failure_reasons": {
+      "Rcvr_Angle_Limits_Exceeded": 1555,
+      "Rcvr_Noise": 97
+    }
+  },
+  "verification": {
+    "profile": "eoir_reference_demo",
+    "profile_version": 1,
+    "checks": [
+      {
+        "check": "event_minimum:SENSOR_TURNED_ON",
+        "expected": 2,
+        "actual": 2,
+        "passed": true
+      },
+      {
+        "check": "event_minimum:SENSOR_DETECTION_ATTEMPT",
+        "expected": 800,
+        "actual": 1638,
+        "passed": true
+      },
+      {
+        "check": "event_minimum:SENSOR_TRACK_INITIATED",
+        "expected": 7,
+        "actual": 7,
+        "passed": true
+      },
+      {
+        "check": "event_minimum:SENSOR_TRACK_DROPPED",
+        "expected": 7,
+        "actual": 7,
+        "passed": true
+      },
+      {
+        "check": "event_minimum:SENSOR_TURNED_OFF",
+        "expected": 2,
+        "actual": 2,
+        "passed": true
+      },
+      {
+        "check": "metric_minimum:successful_detections",
+        "expected": 90,
+        "actual": 90,
+        "passed": true
+      },
+      {
+        "check": "metric_minimum:unique_targets_attempted",
+        "expected": 9,
+        "actual": 9,
+        "passed": true
+      },
+      {
+        "check": "metric_minimum:unique_targets_detected",
+        "expected": 7,
+        "actual": 7,
+        "passed": true
+      },
+      {
+        "check": "metric_minimum:tracks_initiated",
+        "expected": 7,
+        "actual": 7,
+        "passed": true
+      },
+      {
+        "check": "metric_minimum:tracks_dropped",
+        "expected": 7,
+        "actual": 7,
+        "passed": true
+      },
+      {
+        "check": "metric_maximum:open_track_balance",
+        "expected": 0,
+        "actual": 0,
+        "passed": true
+      },
+      {
+        "check": "target_must_be_detected:sr_target_01",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "check": "target_must_be_detected:sr_target_01a",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "check": "target_must_be_detected:sr_target_02",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "check": "target_must_be_detected:sr_target_03",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "check": "target_must_be_detected:sr_target_04",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "check": "target_must_be_detected:lr_target_01",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "check": "target_must_not_be_detected:sr_target_05_no_see",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      }
+    ],
+    "passed": true
+  }
+}

@@ -1,0 +1,6 @@
+0.00000 SENSOR_TURNED_ON uav Sensor: eoir Type: GENERIC_EOIR
+1.00000 SENSOR_DETECTION_ATTEMPT uav target_01 Sensor: eoir Mode: default Beam: 1 \
+  Rcvr->Tgt: Range: 10.5 km Pd: 0.95 RequiredPd: 0.5 Detected: 1
+1.00000 SENSOR_TRACK_INITIATED uav target_01 Sensor: eoir TrackId: uav.1
+2.00000 SENSOR_TRACK_DROPPED uav target_01 Sensor: eoir TrackId: uav.1
+3.00000 SENSOR_TURNED_OFF uav Sensor: eoir Type: GENERIC_EOIR

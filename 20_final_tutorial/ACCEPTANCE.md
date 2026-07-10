@@ -2,6 +2,8 @@
 
 ## 当前 EOIR 基线必须满足
 
+- [ ] `23_project_quality_gate/quality_gate.py core` 返回 0。
+
 - [ ] Ollama 服务可访问，生产模型位于 `D:\AFsim\Agent\ollama\models`。
 - [ ] `qwen2.5:7b` 已安装，0.5B 只作为 smoke test。
 - [ ] 生成 API 使用 JSON Schema 和 temperature 0。
@@ -9,6 +11,7 @@
 - [ ] 四个 EOIR 正向回归样例全部通过结构校验。
 - [ ] 四个样例全部通过参数和动作语义检查。
 - [ ] 四个样例的 `mission.exe` 返回码全部为 0。
+- [ ] 四个样例的 `.evt` 证据门禁全部通过，至少产生真实探测和航迹。
 - [ ] 超出范围的雷达请求在调用模型前被明确拒绝。
 - [ ] 每次运行产物相互隔离并保留 trace。
 - [ ] 基准报告明确声明只覆盖 EOIR 能力。
@@ -36,6 +39,7 @@ all cases: no_rules_fallback == true
 all cases: validation_passed == true
 all cases: semantic_checks == true
 all cases: run_exit_code == 0
+all cases: event_evidence_passed == true
 ```
 
 它不等于经过组织认证的生产系统。安全、军事业务口径和真实任务有效性仍需要相应领域负责人审核。

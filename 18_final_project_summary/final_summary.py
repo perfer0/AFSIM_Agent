@@ -29,9 +29,20 @@ def main() -> int:
     review = read_json(ROOT / "17_human_review_workflow" / "build" / "human_review_report.json")
     engineering_path = ROOT / "19_engineering_baseline" / "build" / "benchmark_report.json"
     engineering = read_json(engineering_path) if engineering_path.exists() else {}
+    event_evidence_path = ROOT / "21_event_evidence_analysis" / "build" / "reference_verification.json"
+    event_evidence = read_json(event_evidence_path) if event_evidence_path.exists() else {}
+    experiment_path = ROOT / "22_reproducible_experiments" / "build" / "experiment_report.json"
+    experiment = read_json(experiment_path) if experiment_path.exists() else {}
+    core_quality_path = ROOT / "23_project_quality_gate" / "build" / "core_quality_report.json"
+    core_quality = read_json(core_quality_path) if core_quality_path.exists() else {}
+    current_production_model = model["production_model"]
+    project_report_model = project.get("quality_gates", {}).get("default_model")
     summary = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
-        "project_quality_passed": project["quality_gates"]["passed"],
+        "project_report_model": project_report_model,
+        "current_production_model": current_production_model,
+        "project_report_model_matches": project_report_model == current_production_model,
+        "project_quality_passed": project["quality_gates"]["passed"] and project_report_model == current_production_model,
         "capability_passed": capability["overall_passed"],
         "capability_count": capability["passed_count"],
         "offline_package_passed": package["passed"],
@@ -39,6 +50,9 @@ def main() -> int:
         "smoke_model_installed": model["smoke_model_installed"],
         "production_model_installed": model["production_model_installed"],
         "engineering_gate_passed": engineering.get("engineering_gate_passed", False),
+        "event_evidence_passed": event_evidence.get("verification", {}).get("passed", False),
+        "experiment_passed": experiment.get("quality_gate_passed", False),
+        "core_quality_passed": core_quality.get("passed", False),
         "human_review_training_passed": review["passed_for_training_demo"],
         "latest_git_log": git_log(),
     }
@@ -50,6 +64,9 @@ def main() -> int:
             summary["demo_scan_passed"],
             summary["production_model_installed"],
             summary["engineering_gate_passed"],
+            summary["event_evidence_passed"],
+            summary["experiment_passed"],
+            summary["core_quality_passed"],
             summary["human_review_training_passed"],
         ]
     )
@@ -63,6 +80,9 @@ Overall training project passed: {summary['overall_training_project_passed']}
 ## Gates
 
 - project_quality_passed: `{summary['project_quality_passed']}`
+- project_report_model: `{summary['project_report_model']}`
+- current_production_model: `{summary['current_production_model']}`
+- project_report_model_matches: `{summary['project_report_model_matches']}`
 - capability_passed: `{summary['capability_passed']}`
 - capability_count: `{summary['capability_count']}`
 - offline_package_passed: `{summary['offline_package_passed']}`
@@ -70,6 +90,9 @@ Overall training project passed: {summary['overall_training_project_passed']}
 - smoke_model_installed: `{summary['smoke_model_installed']}`
 - production_model_installed: `{summary['production_model_installed']}`
 - engineering_gate_passed: `{summary['engineering_gate_passed']}`
+- event_evidence_passed: `{summary['event_evidence_passed']}`
+- experiment_passed: `{summary['experiment_passed']}`
+- core_quality_passed: `{summary['core_quality_passed']}`
 - human_review_training_passed: `{summary['human_review_training_passed']}`
 
 ## Latest Git Log

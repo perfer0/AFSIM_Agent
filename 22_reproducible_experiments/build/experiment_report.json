@@ -1,0 +1,314 @@
+{
+  "generated_at": "2026-07-10T18:25:18",
+  "environment": {
+    "git_commit": "b3b09c0e365fb31524b5514ef325f22deaf7003f",
+    "python": "3.13.13",
+    "mission_exe": "D:\\AFsim\\AFSim\\afsim-2.9.0-win64\\bin\\mission.exe",
+    "mission_exe_sha256": "0b8f2cc6b439f58a96129661e0c4e679270c90b7feea946fa4a1c202e581667d",
+    "experiment_spec_sha256": "ad2daad633e5c56d8925cddf1fcd3c05e56d4181c76771234b6ecc6ca816cc56"
+  },
+  "spec": {
+    "name": "eoir_altitude_seed_sweep_v1",
+    "question": "How does UAV altitude affect EOIR detection outcomes in the reference geometry?",
+    "hypothesis": "Changing altitude changes line-of-sight geometry, range, and EOIR detection outcomes.",
+    "factor": {
+      "name": "altitude_ft",
+      "values": [
+        30000,
+        45000,
+        60000
+      ]
+    },
+    "random_seeds": [
+      13579,
+      24680,
+      97531
+    ],
+    "controlled_values": {
+      "position": "34:30:00n 116:00w",
+      "speed": "350 kts",
+      "heading": "0 deg",
+      "target_set_ref": "eoir_short_long_targets",
+      "end_time": "20 min"
+    },
+    "metrics": [
+      "successful_detections",
+      "detection_success_rate",
+      "unique_targets_detected",
+      "tracks_initiated",
+      "first_detection_seconds"
+    ]
+  },
+  "run_count": 9,
+  "passed_run_count": 9,
+  "records": [
+    {
+      "run_id": "altitude_30000_seed_13579",
+      "altitude_ft": 30000,
+      "seed": 13579,
+      "mission_exit_code": 0,
+      "event_file_exists": true,
+      "successful_detections": 99,
+      "detection_success_rate": 0.06044,
+      "unique_targets_detected": 8,
+      "tracks_initiated": 8,
+      "first_detection_seconds": 146.0,
+      "hashes": {
+        "scenario_json": "861dddc997513f267e41519e483dabab30f14017cccbd7b74008f50381ca6f49",
+        "main_txt": "742b46d1f6aaf102164398f1bd77df198c8b2dcd75ec3f6afcd102aea497d2d3",
+        "event_file": "ef4554a886230ee5b7d50379c6d28a17de53fe9b7eaba18bf07c5be879b77e94"
+      },
+      "passed": true
+    },
+    {
+      "run_id": "altitude_30000_seed_24680",
+      "altitude_ft": 30000,
+      "seed": 24680,
+      "mission_exit_code": 0,
+      "event_file_exists": true,
+      "successful_detections": 99,
+      "detection_success_rate": 0.06044,
+      "unique_targets_detected": 8,
+      "tracks_initiated": 8,
+      "first_detection_seconds": 146.0,
+      "hashes": {
+        "scenario_json": "896701fecdcd441130ea93ba6b6607dc9493957c45caea1d78f75d25a7bb1397",
+        "main_txt": "db3e6d3ec9016cb5b23a38e705d20a86d5fc4d30b410c73b6a993165c85dcd16",
+        "event_file": "16e7308572d30ead550d2b42d31c33eb62d98d99141d9175eaf7d3da3f4f7c84"
+      },
+      "passed": true
+    },
+    {
+      "run_id": "altitude_30000_seed_97531",
+      "altitude_ft": 30000,
+      "seed": 97531,
+      "mission_exit_code": 0,
+      "event_file_exists": true,
+      "successful_detections": 99,
+      "detection_success_rate": 0.06044,
+      "unique_targets_detected": 8,
+      "tracks_initiated": 8,
+      "first_detection_seconds": 146.0,
+      "hashes": {
+        "scenario_json": "4c3c7c91d050cf14f4c950e4dcedd260bcb421d60afc97cbe6065de4907b0f25",
+        "main_txt": "b181183234ec1e21dbce2ed82185da58a4dd46703133bea310e63d67bbef5139",
+        "event_file": "3116f3ad7c23f816aff551f8bdca5c24c4f78c92bda5049f650cc4906fedfa8a"
+      },
+      "passed": true
+    },
+    {
+      "run_id": "altitude_45000_seed_13579",
+      "altitude_ft": 45000,
+      "seed": 13579,
+      "mission_exit_code": 0,
+      "event_file_exists": true,
+      "successful_detections": 98,
+      "detection_success_rate": 0.059829,
+      "unique_targets_detected": 8,
+      "tracks_initiated": 8,
+      "first_detection_seconds": 146.0,
+      "hashes": {
+        "scenario_json": "6918a82c31ea7717c2982fc3c458713c7059519863542860b84fde3f307a6530",
+        "main_txt": "55dabbf13ae3906ce5d103d3c29bcb918cc5bfa0ae97c33974b507675d4b3ee1",
+        "event_file": "7946da866a37139110d7fe96694abb7ecaf78708bdca51bfa6c0456b2e9e3fd0"
+      },
+      "passed": true
+    },
+    {
+      "run_id": "altitude_45000_seed_24680",
+      "altitude_ft": 45000,
+      "seed": 24680,
+      "mission_exit_code": 0,
+      "event_file_exists": true,
+      "successful_detections": 98,
+      "detection_success_rate": 0.059829,
+      "unique_targets_detected": 8,
+      "tracks_initiated": 8,
+      "first_detection_seconds": 146.0,
+      "hashes": {
+        "scenario_json": "770bcc50ee2b3396f124ee40b2d2963195311b8fbd12d5e88d6a5d4c0c0a68ad",
+        "main_txt": "138aee6d73f4c9cc87cfaae550a90dc6133ce68bd27042df19cb30bbd4e7f5fd",
+        "event_file": "bf9aa8bd8e5e5ea81d034a9c29e6acb81d91673065059becb9a6272164698b05"
+      },
+      "passed": true
+    },
+    {
+      "run_id": "altitude_45000_seed_97531",
+      "altitude_ft": 45000,
+      "seed": 97531,
+      "mission_exit_code": 0,
+      "event_file_exists": true,
+      "successful_detections": 98,
+      "detection_success_rate": 0.059829,
+      "unique_targets_detected": 8,
+      "tracks_initiated": 8,
+      "first_detection_seconds": 146.0,
+      "hashes": {
+        "scenario_json": "46f81b212640a0eccc65512e8a674997eaee8434694d660143f4be1769f9b763",
+        "main_txt": "a6c54bffdec656e8a3f5c8480b86b4aaa2decf99ebf79ed3840b863f71e12744",
+        "event_file": "9d23dd0260db51e4e79359071f3d53f941011bb9d97eda93c86682e0b42b497e"
+      },
+      "passed": true
+    },
+    {
+      "run_id": "altitude_60000_seed_13579",
+      "altitude_ft": 60000,
+      "seed": 13579,
+      "mission_exit_code": 0,
+      "event_file_exists": true,
+      "successful_detections": 90,
+      "detection_success_rate": 0.054945,
+      "unique_targets_detected": 7,
+      "tracks_initiated": 7,
+      "first_detection_seconds": 146.0,
+      "hashes": {
+        "scenario_json": "84b312bf311aab91e54441f8a2ea10abe2ed2ee6f247cb473cca216c337f3f6a",
+        "main_txt": "746e71c666b8d14e6e9737e84b01b4285d35a54d136af2088f81b7b12e1861aa",
+        "event_file": "5a8cdcb9a94496acb9df7f05de1cc38f5938059e620c542c1fa3f9f00748b7c3"
+      },
+      "passed": true
+    },
+    {
+      "run_id": "altitude_60000_seed_24680",
+      "altitude_ft": 60000,
+      "seed": 24680,
+      "mission_exit_code": 0,
+      "event_file_exists": true,
+      "successful_detections": 90,
+      "detection_success_rate": 0.054945,
+      "unique_targets_detected": 7,
+      "tracks_initiated": 7,
+      "first_detection_seconds": 146.0,
+      "hashes": {
+        "scenario_json": "6356a09a7d2059f67fd2aa38ab81d126c1cb1fa8dab8e258536aeda1e867fe59",
+        "main_txt": "ab2d4eab1b623530eca843887317418e1f3e2234c8c6fdf85dd24f6f4aa0e20e",
+        "event_file": "bf9fe9937397d87de7a05a2e996e61a8a22a582ea91b40b4991631cd19ca5207"
+      },
+      "passed": true
+    },
+    {
+      "run_id": "altitude_60000_seed_97531",
+      "altitude_ft": 60000,
+      "seed": 97531,
+      "mission_exit_code": 0,
+      "event_file_exists": true,
+      "successful_detections": 90,
+      "detection_success_rate": 0.054945,
+      "unique_targets_detected": 7,
+      "tracks_initiated": 7,
+      "first_detection_seconds": 146.0,
+      "hashes": {
+        "scenario_json": "21ac92e7d2784cd631c93fabf918af96927c2a3de37ce8d314d13698b753966b",
+        "main_txt": "49e5b695c3916cd4f3dc5ab69b58622b63b33a1ce48f4b3c564c93c21cd4102d",
+        "event_file": "be469cda3ec8dbcac283f524a660ab14d2f9c2d8dc2a51f660ae086eede5dccb"
+      },
+      "passed": true
+    }
+  ],
+  "aggregates": [
+    {
+      "altitude_ft": 30000,
+      "runs": 3,
+      "successful_detections": {
+        "mean": 99.0,
+        "sample_stdev": 0.0,
+        "minimum": 99.0,
+        "maximum": 99.0
+      },
+      "detection_success_rate": {
+        "mean": 0.06044,
+        "sample_stdev": 0.0,
+        "minimum": 0.06044,
+        "maximum": 0.06044
+      },
+      "unique_targets_detected": {
+        "mean": 8.0,
+        "sample_stdev": 0.0,
+        "minimum": 8.0,
+        "maximum": 8.0
+      },
+      "tracks_initiated": {
+        "mean": 8.0,
+        "sample_stdev": 0.0,
+        "minimum": 8.0,
+        "maximum": 8.0
+      },
+      "first_detection_seconds": {
+        "mean": 146.0,
+        "sample_stdev": 0.0,
+        "minimum": 146.0,
+        "maximum": 146.0
+      }
+    },
+    {
+      "altitude_ft": 45000,
+      "runs": 3,
+      "successful_detections": {
+        "mean": 98.0,
+        "sample_stdev": 0.0,
+        "minimum": 98.0,
+        "maximum": 98.0
+      },
+      "detection_success_rate": {
+        "mean": 0.059829,
+        "sample_stdev": 0.0,
+        "minimum": 0.059829,
+        "maximum": 0.059829
+      },
+      "unique_targets_detected": {
+        "mean": 8.0,
+        "sample_stdev": 0.0,
+        "minimum": 8.0,
+        "maximum": 8.0
+      },
+      "tracks_initiated": {
+        "mean": 8.0,
+        "sample_stdev": 0.0,
+        "minimum": 8.0,
+        "maximum": 8.0
+      },
+      "first_detection_seconds": {
+        "mean": 146.0,
+        "sample_stdev": 0.0,
+        "minimum": 146.0,
+        "maximum": 146.0
+      }
+    },
+    {
+      "altitude_ft": 60000,
+      "runs": 3,
+      "successful_detections": {
+        "mean": 90.0,
+        "sample_stdev": 0.0,
+        "minimum": 90.0,
+        "maximum": 90.0
+      },
+      "detection_success_rate": {
+        "mean": 0.054945,
+        "sample_stdev": 0.0,
+        "minimum": 0.054945,
+        "maximum": 0.054945
+      },
+      "unique_targets_detected": {
+        "mean": 7.0,
+        "sample_stdev": 0.0,
+        "minimum": 7.0,
+        "maximum": 7.0
+      },
+      "tracks_initiated": {
+        "mean": 7.0,
+        "sample_stdev": 0.0,
+        "minimum": 7.0,
+        "maximum": 7.0
+      },
+      "first_detection_seconds": {
+        "mean": 146.0,
+        "sample_stdev": 0.0,
+        "minimum": 146.0,
+        "maximum": 146.0
+      }
+    }
+  ],
+  "seed_variation_observed": false,
+  "quality_gate_passed": true
+}

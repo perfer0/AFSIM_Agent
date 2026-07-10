@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-10T15:44:44",
-  "total_count": 11,
-  "passed_count": 11,
+  "generated_at": "2026-07-10T18:25:41",
+  "total_count": 14,
+  "passed_count": 14,
   "overall_passed": true,
   "capabilities": [
     {
@@ -136,7 +136,7 @@
         {
           "path": "08_mcp_tools/mcp_server.py",
           "exists": true,
-          "bytes": 6781
+          "bytes": 6816
         },
         {
           "path": "08_mcp_tools/build/mcp_test_result.json",
@@ -155,12 +155,12 @@
         {
           "path": "09_custom_skills/afsim-scenario-agent/SKILL.md",
           "exists": true,
-          "bytes": 1998
+          "bytes": 2074
         },
         {
           "path": "09_custom_skills/afsim-scenario-agent/references/workflow.md",
           "exists": true,
-          "bytes": 1679
+          "bytes": 1677
         }
       ],
       "checks": []
@@ -196,7 +196,7 @@
         {
           "path": "11_project_integration/afsim_project.py",
           "exists": true,
-          "bytes": 5815
+          "bytes": 6715
         },
         {
           "path": "11_project_integration/build/project_run_report.json",
@@ -243,6 +243,90 @@
           "passed": true
         }
       ]
+    },
+    {
+      "id": "event_evidence",
+      "name": "AFSIM 事件效果验收",
+      "passed": true,
+      "meaning": "能解析 .evt，将探测、目标覆盖和航迹生命周期转成任务效果证据。",
+      "evidence": [
+        {
+          "path": "21_event_evidence_analysis/event_evidence.py",
+          "exists": true,
+          "bytes": 12478
+        },
+        {
+          "path": "21_event_evidence_analysis/build/reference_verification.json",
+          "exists": true,
+          "bytes": 7841
+        }
+      ],
+      "checks": [
+        {
+          "path": "21_event_evidence_analysis/build/reference_verification.json",
+          "key_path": [
+            "verification",
+            "passed"
+          ],
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "reproducible_experiments",
+      "name": "可重复参数实验",
+      "passed": true,
+      "meaning": "能控制参数和随机种子，批量运行 AFSIM，并汇总任务指标与变异。",
+      "evidence": [
+        {
+          "path": "22_reproducible_experiments/experiment_runner.py",
+          "exists": true,
+          "bytes": 9521
+        },
+        {
+          "path": "22_reproducible_experiments/build/experiment_report.json",
+          "exists": true,
+          "bytes": 10072
+        }
+      ],
+      "checks": [
+        {
+          "path": "22_reproducible_experiments/build/experiment_report.json",
+          "key": "quality_gate_passed",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "project_quality_gate",
+      "name": "统一项目质量门禁",
+      "passed": true,
+      "meaning": "能用一个入口重复执行编译、JSON、单元测试、事件验收和参数实验。",
+      "evidence": [
+        {
+          "path": "23_project_quality_gate/quality_gate.py",
+          "exists": true,
+          "bytes": 5658
+        },
+        {
+          "path": "23_project_quality_gate/build/core_quality_report.json",
+          "exists": true,
+          "bytes": 6155
+        }
+      ],
+      "checks": [
+        {
+          "path": "23_project_quality_gate/build/core_quality_report.json",
+          "key": "passed",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ]
     }
   ],
   "next_capabilities": [
@@ -252,7 +336,7 @@
     },
     {
       "name": "更强本地模型",
-      "why": "qwen2.5:0.5b 适合验证链路，但复杂想定需要 7B/14B 级模型和更强 JSON 修复能力。"
+      "why": "qwen2.5:0.5b 已实测不满足工程要求；需要由 7B 候选模型通过固定回归集后才能成为生产基线。"
     },
     {
       "name": "真实 AFSIM 组件映射",
@@ -261,6 +345,10 @@
     {
       "name": "人机协同审查",
       "why": "复杂军事仿真不能只靠模型，需要人工确认约束、参数和战术意图。"
+    },
+    {
+      "name": "随机实验与统计推断",
+      "why": "当前已有单次事件指标，下一步要管理随机种子、重复实验、参数扫描和置信区间。"
     }
   ]
 }
