@@ -39,6 +39,8 @@ python .\afsim_project.py run .\requests\integrated_eoir_request.txt
 python .\afsim_project.py report
 ```
 
+`status` 只有在生产模型 `qwen2.5:7b` 已完整安装时才返回 0；仅安装 0.5B 会显示环境尚未达到工程运行条件。
+
 ## 成功标准
 
 ```text

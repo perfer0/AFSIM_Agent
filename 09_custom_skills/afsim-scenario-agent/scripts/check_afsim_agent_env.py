@@ -32,6 +32,10 @@ def main() -> int:
         "ollama_list": run([str(OLLAMA_EXE), "list"]) if OLLAMA_EXE.exists() else {"returncode": 127, "stdout": "", "stderr": "ollama.exe not found"},
         "git_status": run(["git", "status", "--short"], ROOT) if ROOT.exists() else {"returncode": 127, "stdout": "", "stderr": "project root not found"},
     }
+    checks["production_model"] = {
+        "name": "qwen2.5:7b",
+        "installed": "qwen2.5:7b" in checks["ollama_list"].get("stdout", ""),
+    }
     print(json.dumps(checks, ensure_ascii=False, indent=2))
     required_ok = (
         checks["project_root"]["exists"]
@@ -39,6 +43,7 @@ def main() -> int:
         and checks["ollama_exe"]["exists"]
         and checks["ollama_models"]["exists"]
         and checks["ollama_list"]["returncode"] == 0
+        and checks["production_model"]["installed"]
     )
     return 0 if required_ok else 1
 

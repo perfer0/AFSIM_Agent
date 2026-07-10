@@ -1,4 +1,5 @@
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -73,7 +74,7 @@ def main() -> int:
                 "name": "afsim_agent_run",
                 "arguments": {
                     "request_text": request_text,
-                    "model": "qwen2.5:0.5b",
+                    "model": os.environ.get("AFSIM_AGENT_MODEL", "qwen2.5:7b"),
                     "run": True,
                     "fallback_rules": False,
                 },

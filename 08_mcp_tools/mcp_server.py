@@ -12,7 +12,7 @@ BUILD = STEP_ROOT / "build"
 AGENT_DIR = ROOT / "07_agent_loop"
 AGENT_SCRIPT = AGENT_DIR / "agent_loop.py"
 OLLAMA_MODELS = ROOT / "ollama" / "models"
-DEFAULT_MODEL = "qwen2.5:0.5b"
+DEFAULT_MODEL = os.environ.get("AFSIM_AGENT_MODEL", "qwen2.5:7b")
 
 
 TOOLS = [

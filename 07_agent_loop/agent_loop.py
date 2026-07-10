@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -16,7 +17,107 @@ PROMPTS = ROOT / "prompts"
 BUILD = ROOT / "build"
 EXAMPLES = ROOT / "examples"
 DEFAULT_ENDPOINT = "http://127.0.0.1:11434/api/generate"
-DEFAULT_MODEL = "qwen2.5:0.5b"
+DEFAULT_MODEL = os.environ.get("AFSIM_AGENT_MODEL", "qwen2.5:7b")
+UNSUPPORTED_SCOPE_TERMS = {
+    "radar": "radar",
+    "雷达": "radar",
+    "communications": "communications",
+    "communication": "communications",
+    "通信": "communications",
+    "weapon": "weapon",
+    "missile": "weapon",
+    "武器": "weapon",
+    "导弹": "weapon",
+    "electronic warfare": "electronic_warfare",
+    "electronic attack": "electronic_warfare",
+    "电子战": "electronic_warfare",
+    "电子攻击": "electronic_warfare",
+}
+
+SCENARIO_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "description": {"type": "string"},
+        "platform_type_refs": {
+            "type": "array",
+            "items": {"type": "string", "enum": ["uav_eoir", "ground_site"]},
+            "minItems": 2,
+        },
+        "actors": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string", "minLength": 1},
+                    "platform_type_ref": {"type": "string", "enum": ["uav_eoir"]},
+                    "side": {"type": "string", "enum": ["blue", "red", "white", "green", "neutral"]},
+                    "route": {
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "position": {"type": "string"},
+                                "altitude": {"type": "string"},
+                                "speed": {"type": "string"},
+                                "heading": {"type": "string"},
+                            },
+                            "required": ["position", "altitude", "speed", "heading"],
+                        },
+                    },
+                    "execute": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "time": {"type": "string"},
+                                "relative": {"type": "boolean"},
+                                "script": {
+                                    "type": "string",
+                                    "pattern": "^(BeginImaging\\(\\\"eoir\\\", \\\"\\\", -?[0-9]+(?:\\.[0-9]+)?, [0-9]+(?:\\.[0-9]+)?\\);|EndImaging\\(\\);)$",
+                                },
+                            },
+                            "required": ["time", "relative", "script"],
+                        },
+                    },
+                },
+                "required": ["name", "platform_type_ref", "side", "route", "execute"],
+            },
+        },
+        "target_set_refs": {
+            "type": "array",
+            "items": {"type": "string", "enum": ["eoir_short_long_targets"]},
+            "minItems": 1,
+        },
+        "event_pipe": {
+            "type": "object",
+            "properties": {"file": {"type": "string", "pattern": "^output/[A-Za-z0-9_.-]+\\.aer$"}},
+            "required": ["file"],
+        },
+        "event_output": {
+            "type": "object",
+            "properties": {
+                "file": {"type": "string", "pattern": "^output/[A-Za-z0-9_.-]+\\.evt$"},
+                "event_set_ref": {"type": "string", "enum": ["eoir_sensor_events"]},
+            },
+            "required": ["file", "event_set_ref"],
+        },
+        "end_time": {
+            "type": "object",
+            "properties": {
+                "value": {"type": "integer", "minimum": 1, "maximum": 120},
+                "unit": {"type": "string", "enum": ["sec", "min", "hr"]},
+            },
+            "required": ["value", "unit"],
+        },
+    },
+    "required": [
+        "name", "description", "platform_type_refs", "actors", "target_set_refs",
+        "event_pipe", "event_output", "end_time",
+    ],
+}
 
 
 def load_text(path: Path) -> str:
@@ -59,6 +160,20 @@ def retrieve_knowledge(request_text: str, top_k: int = 3) -> list[dict]:
     return hits[:top_k]
 
 
+def validate_request_scope(request_text: str) -> list[str]:
+    if not request_text.strip():
+        return ["request is empty"]
+    if len(request_text) > 20000:
+        return ["request exceeds the 20000 character limit"]
+    lowered = request_text.lower()
+    unsupported = sorted({capability for term, capability in UNSUPPORTED_SCOPE_TERMS.items() if term in lowered})
+    if unsupported:
+        return [
+            "unsupported scenario capability: " + ", ".join(unsupported) + "; current validated scope is EOIR reconnaissance only"
+        ]
+    return []
+
+
 def format_context(hits: list[dict]) -> str:
     blocks = []
     for hit in hits:
@@ -85,8 +200,9 @@ def call_ollama(prompt: str, model: str, endpoint: str) -> dict:
     payload = {
         "model": model,
         "stream": False,
-        "format": "json",
-        "options": {"temperature": 0.1, "top_p": 0.9},
+        "format": SCENARIO_SCHEMA,
+        "keep_alive": "10m",
+        "options": {"temperature": 0, "top_p": 0.9, "num_ctx": 8192},
         "prompt": prompt,
     }
     request = urllib.request.Request(
@@ -98,7 +214,16 @@ def call_ollama(prompt: str, model: str, endpoint: str) -> dict:
     opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
     with opener.open(request, timeout=180) as response:
         body = json.loads(response.read().decode("utf-8"))
-    return extract_json(body.get("response", ""))
+    draft = extract_json(body.get("response", ""))
+    draft["_generation"] = {
+        "model": body.get("model", model),
+        "total_duration_ns": body.get("total_duration"),
+        "load_duration_ns": body.get("load_duration"),
+        "prompt_eval_count": body.get("prompt_eval_count"),
+        "eval_count": body.get("eval_count"),
+        "eval_duration_ns": body.get("eval_duration"),
+    }
+    return draft
 
 
 def rule_fallback() -> dict:
@@ -132,6 +257,7 @@ class AgentTrace:
 def build_draft_prompt(request_text: str, context: str) -> str:
     return (
         f"{load_text(PROMPTS / 'agent_draft_prompt.md')}\n\n"
+        f"## 必须满足的 JSON Schema\n\n{json.dumps(SCENARIO_SCHEMA, ensure_ascii=False)}\n\n"
         f"## 检索到的 AFSIM 知识\n\n{context}\n\n"
         f"## 用户需求\n\n{request_text}\n"
     )
@@ -140,6 +266,7 @@ def build_draft_prompt(request_text: str, context: str) -> str:
 def build_repair_prompt(request_text: str, context: str, draft: dict, errors: list[str]) -> str:
     return (
         f"{load_text(PROMPTS / 'agent_repair_prompt.md')}\n\n"
+        f"## 必须满足的 JSON Schema\n\n{json.dumps(SCENARIO_SCHEMA, ensure_ascii=False)}\n\n"
         f"## 用户需求\n\n{request_text}\n\n"
         f"## 检索到的 AFSIM 知识\n\n{context}\n\n"
         f"## 当前 JSON\n\n{json.dumps(draft, ensure_ascii=False, indent=2)}\n\n"
@@ -151,7 +278,7 @@ def draft_with_agent(request_text: str, context: str, model: str, endpoint: str,
     try:
         draft = call_ollama(build_draft_prompt(request_text, context), model, endpoint)
         draft["draft_provider"] = "ollama"
-        trace.add("draft", "ok", "local model produced initial scenario JSON", {"model": model})
+        trace.add("draft", "ok", "local model produced schema-constrained scenario JSON", draft.get("_generation", {"model": model}))
         return draft
     except Exception as exc:
         trace.add("draft", "failed", str(exc), {"model": model})
@@ -230,14 +357,26 @@ def run_mission(main_path: Path, trace: AgentTrace) -> int:
 
 
 def command_agent(args: argparse.Namespace) -> int:
-    BUILD.mkdir(parents=True, exist_ok=True)
+    build_dir = Path(args.build_dir).resolve()
+    scenario_output = Path(args.scenario_output).resolve()
+    build_dir.mkdir(parents=True, exist_ok=True)
     trace = AgentTrace()
     request_text = load_text(Path(args.request))
     trace.add("plan", "ok", "plan: retrieve knowledge, draft JSON, validate, repair if needed, generate AFSIM, run mission")
 
+    scope_errors = validate_request_scope(request_text)
+    if scope_errors:
+        trace.add("scope", "failed", "request is outside the validated capability boundary", {"errors": scope_errors})
+        trace.save(build_dir / "agent_trace.json")
+        print("Request rejected:")
+        for error in scope_errors:
+            print(f"  - {error}")
+        return 1
+    trace.add("scope", "ok", "request is inside the validated EOIR capability boundary")
+
     hits = retrieve_knowledge(request_text, args.top_k)
     context = format_context(hits)
-    write_text(BUILD / "retrieval_context.md", context)
+    write_text(build_dir / "retrieval_context.md", context)
     trace.add("retrieve", "ok", "retrieved local AFSIM knowledge snippets", {"hits": [{"path": h["path"], "score": h["score"]} for h in hits]})
 
     try:
@@ -252,26 +391,26 @@ def command_agent(args: argparse.Namespace) -> int:
             args.fallback_rules,
             trace,
         )
-        write_json(EXAMPLES / "agent_generated_scenario.json", draft)
+        write_json(scenario_output, draft)
         if errors:
             print("Agent failed to produce a valid scenario:")
             for error in errors:
                 print(f"  - {error}")
-            trace.save(BUILD / "agent_trace.json")
+            trace.save(build_dir / "agent_trace.json")
             return 1
-        main_path, _ = generate_outputs(draft, BUILD, trace)
+        main_path, _ = generate_outputs(draft, build_dir, trace)
         exit_code = run_mission(main_path, trace) if args.run else 0
-        trace.save(BUILD / "agent_trace.json")
-        print(f"Agent trace: {BUILD / 'agent_trace.json'}")
-        print(f"Retrieval context: {BUILD / 'retrieval_context.md'}")
-        print(f"Scenario JSON: {EXAMPLES / 'agent_generated_scenario.json'}")
-        print(f"AFSIM main: {BUILD / 'main_generated.txt'}")
+        trace.save(build_dir / "agent_trace.json")
+        print(f"Agent trace: {build_dir / 'agent_trace.json'}")
+        print(f"Retrieval context: {build_dir / 'retrieval_context.md'}")
+        print(f"Scenario JSON: {scenario_output}")
+        print(f"AFSIM main: {build_dir / 'main_generated.txt'}")
         if args.run:
             print(f"mission.exe exit code: {exit_code}")
         return exit_code
     except Exception as exc:
         trace.add("agent", "failed", str(exc))
-        trace.save(BUILD / "agent_trace.json")
+        trace.save(build_dir / "agent_trace.json")
         print(f"Agent failed: {exc}")
         return 1
 
@@ -298,6 +437,8 @@ def build_parser() -> argparse.ArgumentParser:
     agent_parser.add_argument("--max-repairs", type=int, default=2)
     agent_parser.add_argument("--fallback-rules", action="store_true")
     agent_parser.add_argument("--run", action="store_true")
+    agent_parser.add_argument("--build-dir", default=str(BUILD))
+    agent_parser.add_argument("--scenario-output", default=str(EXAMPLES / "agent_generated_scenario.json"))
     agent_parser.set_defaults(func=command_agent)
 
     clean_parser = subparsers.add_parser("clean")

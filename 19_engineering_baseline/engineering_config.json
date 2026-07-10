@@ -1,0 +1,25 @@
+{
+  "project": "AFSIM_Agent",
+  "model_storage": "D:/AFsim/Agent/ollama/models",
+  "ollama_exe": "C:/Users/lenovo/AppData/Local/Programs/Ollama/ollama.exe",
+  "ollama_endpoint": "http://127.0.0.1:11434/api/generate",
+  "mission_exe": "D:/AFsim/AFSim/afsim-2.9.0-win64/bin/mission.exe",
+  "models": {
+    "smoke_test": "qwen2.5:0.5b",
+    "production_baseline": "qwen2.5:7b"
+  },
+  "generation": {
+    "temperature": 0,
+    "context_tokens": 8192,
+    "max_repairs": 2,
+    "case_timeout_seconds": 90,
+    "allow_rules_fallback_in_acceptance": false
+  },
+  "acceptance": {
+    "minimum_case_pass_rate": 1.0,
+    "require_schema_validation": true,
+    "require_semantic_checks": true,
+    "require_mission_exit_zero": true,
+    "forbid_rule_fallback": true
+  }
+}

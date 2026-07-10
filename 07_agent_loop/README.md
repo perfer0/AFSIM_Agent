@@ -66,7 +66,7 @@ $env:OLLAMA_MODELS='D:\AFsim\Agent\ollama\models'
 ```powershell
 cd D:\AFsim\Agent\07_agent_loop
 $env:OLLAMA_MODELS='D:\AFsim\Agent\ollama\models'
-python .\agent_loop.py agent .\requests\eoir_agent_request.txt --model qwen2.5:0.5b --fallback-rules --run
+python .\agent_loop.py agent .\requests\eoir_agent_request.txt --model qwen2.5:7b --run
 ```
 
 看 Agent 执行轨迹：

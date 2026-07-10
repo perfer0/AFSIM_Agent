@@ -1,0 +1,17 @@
+{
+  "ollama_api_reachable": true,
+  "ollama_api_error": null,
+  "installed_models": [
+    "qwen2.5:0.5b"
+  ],
+  "production_model": "qwen2.5:7b",
+  "production_model_installed": false,
+  "smoke_model_installed": true,
+  "model_storage": "D:\\AFsim\\Agent\\ollama\\models",
+  "model_storage_on_d_drive": true,
+  "model_storage_exists": true,
+  "model_storage_free_gb": 557.72,
+  "mission_exe_exists": true,
+  "agent_exists": true,
+  "passed": false
+}

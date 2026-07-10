@@ -60,7 +60,7 @@ def command_status(_: argparse.Namespace) -> int:
         "ollama_models_path": str(OLLAMA_MODELS),
         "ollama_models_exists": OLLAMA_MODELS.exists(),
         "ollama": models,
-        "baseline_installed": plan["current_baseline"]["model"] in models.get("models", []),
+        "smoke_model_installed": plan["smoke_test_model"]["model"] in models.get("models", []),
         "candidates": [
             {
                 **candidate,
@@ -69,9 +69,12 @@ def command_status(_: argparse.Namespace) -> int:
             for candidate in plan["candidate_models"]
         ],
     }
+    production = next((item for item in report["candidates"] if item["tier"] == "production_baseline_candidate"), None)
+    report["production_model"] = production["model"] if production else None
+    report["production_model_installed"] = production["installed"] if production else False
     write_json(BUILD / "model_status.json", report)
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0 if report["baseline_installed"] else 1
+    return 0 if report["smoke_model_installed"] else 1
 
 
 def command_write_pull_script(_: argparse.Namespace) -> int:

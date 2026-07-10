@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T15:54:15",
+  "generated_at": "2026-07-10T16:25:37",
   "ollama_models_path": "D:\\AFsim\\Agent\\ollama\\models",
   "ollama_models_exists": true,
   "ollama": {
@@ -9,17 +9,17 @@
     ],
     "cwd": "D:\\AFsim\\Agent",
     "returncode": 0,
-    "stdout": "NAME            ID              SIZE      MODIFIED     \nqwen2.5:0.5b    a8b0c5157701    397 MB    24 hours ago",
+    "stdout": "NAME            ID              SIZE      MODIFIED     \nqwen2.5:0.5b    a8b0c5157701    397 MB    25 hours ago",
     "stderr": "",
     "models": [
       "qwen2.5:0.5b"
     ]
   },
-  "baseline_installed": true,
+  "smoke_model_installed": true,
   "candidates": [
     {
       "model": "qwen2.5:7b",
-      "tier": "recommended_next",
+      "tier": "production_baseline_candidate",
       "expected_use": "Better Chinese instruction following and scenario JSON quality.",
       "risk": "medium download size; verify disk before pull",
       "pull_command": "ollama pull qwen2.5:7b",
@@ -41,5 +41,7 @@
       "pull_command": "ollama pull qwen2.5:14b",
       "installed": false
     }
-  ]
+  ],
+  "production_model": "qwen2.5:7b",
+  "production_model_installed": false
 }

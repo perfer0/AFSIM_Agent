@@ -27,6 +27,8 @@ def main() -> int:
     scan = read_json(ROOT / "15_real_afsim_extension" / "build" / "afsim_demo_scan.json")
     model = read_json(ROOT / "16_model_upgrade" / "build" / "model_status.json")
     review = read_json(ROOT / "17_human_review_workflow" / "build" / "human_review_report.json")
+    engineering_path = ROOT / "19_engineering_baseline" / "build" / "benchmark_report.json"
+    engineering = read_json(engineering_path) if engineering_path.exists() else {}
     summary = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "project_quality_passed": project["quality_gates"]["passed"],
@@ -34,7 +36,9 @@ def main() -> int:
         "capability_count": capability["passed_count"],
         "offline_package_passed": package["passed"],
         "demo_scan_passed": scan["quality_gate"]["passed"],
-        "baseline_model_installed": model["baseline_installed"],
+        "smoke_model_installed": model["smoke_model_installed"],
+        "production_model_installed": model["production_model_installed"],
+        "engineering_gate_passed": engineering.get("engineering_gate_passed", False),
         "human_review_training_passed": review["passed_for_training_demo"],
         "latest_git_log": git_log(),
     }
@@ -44,7 +48,8 @@ def main() -> int:
             summary["capability_passed"],
             summary["offline_package_passed"],
             summary["demo_scan_passed"],
-            summary["baseline_model_installed"],
+            summary["production_model_installed"],
+            summary["engineering_gate_passed"],
             summary["human_review_training_passed"],
         ]
     )
@@ -62,7 +67,9 @@ Overall training project passed: {summary['overall_training_project_passed']}
 - capability_count: `{summary['capability_count']}`
 - offline_package_passed: `{summary['offline_package_passed']}`
 - demo_scan_passed: `{summary['demo_scan_passed']}`
-- baseline_model_installed: `{summary['baseline_model_installed']}`
+- smoke_model_installed: `{summary['smoke_model_installed']}`
+- production_model_installed: `{summary['production_model_installed']}`
+- engineering_gate_passed: `{summary['engineering_gate_passed']}`
 - human_review_training_passed: `{summary['human_review_training_passed']}`
 
 ## Latest Git Log

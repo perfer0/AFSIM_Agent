@@ -1,9 +1,12 @@
 ﻿# AFSIM generated outputs
 **/build/output/
 **/build/*.log
+**/build/**/*.log
 **/*.aer
 **/*.evt
 **/build/*.zip
+19_engineering_baseline/build/runs/
+19_engineering_baseline/build/scope_test/
 
 # Python cache
 __pycache__/

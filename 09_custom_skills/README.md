@@ -36,8 +36,10 @@ python .\scripts\check_afsim_agent_env.py
 ```text
 quick_validate.py 通过
 check_afsim_agent_env.py 返回 0
-ollama list 能看到 qwen2.5:0.5b
+ollama list 能看到 qwen2.5:7b
 ```
+
+`qwen2.5:0.5b` 只用于环境冒烟测试，不能满足这一工程环境检查。
 
 ## 重点理解
 

@@ -70,7 +70,7 @@ def audit_outputs(env_check: dict[str, Any], mcp_payload: dict[str, Any]) -> dic
         "mcp_returncode": mcp_payload.get("mcp", {}).get("returncode"),
         "draft_provider": scenario.get("draft_provider"),
         "run_exit_code": run_event.get("data", {}).get("exit_code"),
-        "required_events_present": all(step in event_map for step in ["plan", "retrieve", "draft", "validate", "generate", "run"]),
+        "required_events_present": all(step in event_map for step in ["plan", "scope", "retrieve", "draft", "validate", "generate", "run"]),
         "artifacts_exist": {
             "mcp_server": MCP_SERVER.exists(),
             "mcp_request": MCP_REQUEST.exists(),
@@ -82,7 +82,7 @@ def audit_outputs(env_check: dict[str, Any], mcp_payload: dict[str, Any]) -> dic
     audit["passed"] = (
         audit["env_check_returncode"] == 0
         and audit["mcp_returncode"] == 0
-        and audit["draft_provider"] == "ollama"
+        and audit["draft_provider"] in {"ollama", "ollama_repair"}
         and audit["run_exit_code"] == 0
         and audit["required_events_present"]
         and all(audit["artifacts_exist"].values())

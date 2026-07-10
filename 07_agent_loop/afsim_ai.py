@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 import re
 import subprocess
 import urllib.error
@@ -168,6 +169,8 @@ def validate_scenario(data: dict) -> list[str]:
     event_output = data.get("event_output", {})
     if not event_output.get("file"):
         errors.append("event_output.file is required")
+    elif not is_safe_output_file(event_output["file"], ".evt"):
+        errors.append("event_output.file must be a safe output/*.evt path")
     if not event_output.get("event_set_ref"):
         errors.append("event_output.event_set_ref is required")
     else:
@@ -175,8 +178,13 @@ def validate_scenario(data: dict) -> list[str]:
             load_component("event_outputs", event_output["event_set_ref"])
         except FileNotFoundError as exc:
             errors.append(str(exc))
-    if not data.get("event_pipe", {}).get("file"):
+    event_pipe_file = data.get("event_pipe", {}).get("file")
+    if not event_pipe_file:
         errors.append("event_pipe.file is required")
+    elif not is_safe_output_file(event_pipe_file, ".aer"):
+        errors.append("event_pipe.file must be a safe output/*.aer path")
+    if event_pipe_file and event_pipe_file == event_output.get("file"):
+        errors.append("event_pipe.file and event_output.file must be different")
     end_time = data.get("end_time", {})
     if not isinstance(end_time.get("value"), int):
         errors.append("end_time.value must be an integer")
@@ -203,8 +211,22 @@ def validate_platform_like(item: dict, platform_types: dict, prefix: str, errors
         for field in ["time", "script"]:
             if not execute.get(field):
                 errors.append(f"{prefix}.execute[{execute_index}].{field} is required")
+        script = execute.get("script")
+        if script and not is_allowed_execute_script(script):
+            errors.append(
+                f"{prefix}.execute[{execute_index}].script must be one allowed BeginImaging or EndImaging command"
+            )
         if not isinstance(execute.get("relative", False), bool):
             errors.append(f"{prefix}.execute[{execute_index}].relative must be true or false")
+
+
+def is_safe_output_file(value: str, suffix: str) -> bool:
+    return bool(re.fullmatch(rf"output/[A-Za-z0-9_.-]+{re.escape(suffix)}", value))
+
+
+def is_allowed_execute_script(value: str) -> bool:
+    begin = r'BeginImaging\("eoir", "", -?[0-9]+(?:\.[0-9]+)?, [0-9]+(?:\.[0-9]+)?\);'
+    return bool(re.fullmatch(rf"(?:{begin}|EndImaging\(\);)", value))
 
 
 def expand_platforms(data: dict, platform_types: dict) -> list[dict]:
@@ -388,7 +410,7 @@ def build_parser() -> argparse.ArgumentParser:
     draft_parser = subparsers.add_parser("draft")
     draft_parser.add_argument("request")
     draft_parser.add_argument("--provider", choices=["rules", "ollama"], default="ollama")
-    draft_parser.add_argument("--model", default="qwen2.5:0.5b")
+    draft_parser.add_argument("--model", default=os.environ.get("AFSIM_AGENT_MODEL", "qwen2.5:7b"))
     draft_parser.add_argument("--endpoint", default=DEFAULT_ENDPOINT)
     draft_parser.add_argument("--fallback-rules", action="store_true")
     draft_parser.add_argument("--output", default=str(ROOT / "examples" / "local_model_drafted_scenario.json"))

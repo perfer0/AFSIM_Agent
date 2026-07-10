@@ -1,0 +1,68 @@
+{
+  "suite": "eoir_engineering_v1",
+  "scope_note": "This suite proves the current EOIR component path only; it does not claim radar, communications, weapon, or EW capability.",
+  "cases": [
+    {
+      "id": "eoir_baseline",
+      "request": "requests/eoir_baseline.txt",
+      "expect": {
+        "required_platform_refs": ["uav_eoir", "ground_site"],
+        "required_target_refs": ["eoir_short_long_targets"],
+        "event_set_ref": "eoir_sensor_events",
+        "position_contains": ["34:30:00n 116:00w"],
+        "script_contains": ["BeginImaging", "EndImaging"],
+        "minimum_execute_count": 2,
+        "maximum_end_minutes": 20
+      }
+    },
+    {
+      "id": "eoir_parameter_fidelity",
+      "request": "requests/eoir_parameter_fidelity.txt",
+      "expect": {
+        "required_platform_refs": ["uav_eoir", "ground_site"],
+        "required_target_refs": ["eoir_short_long_targets"],
+        "event_set_ref": "eoir_sensor_events",
+        "position_contains": ["34:31:00n 116:02w"],
+        "route_contains": ["45000 ft", "280 kts", "90 deg"],
+        "script_contains": ["BeginImaging", "EndImaging"],
+        "minimum_execute_count": 2,
+        "maximum_end_minutes": 12
+      }
+    },
+    {
+      "id": "eoir_two_waypoints",
+      "request": "requests/eoir_two_waypoints.txt",
+      "expect": {
+        "required_platform_refs": ["uav_eoir", "ground_site"],
+        "required_target_refs": ["eoir_short_long_targets"],
+        "event_set_ref": "eoir_sensor_events",
+        "position_contains": ["34:30:00n 116:00w", "34:42:00n 116:30w"],
+        "minimum_route_points": 2,
+        "script_contains": ["BeginImaging", "EndImaging"],
+        "minimum_execute_count": 2,
+        "maximum_end_minutes": 18
+      }
+    },
+    {
+      "id": "eoir_three_windows",
+      "request": "requests/eoir_three_windows.txt",
+      "expect": {
+        "required_platform_refs": ["uav_eoir", "ground_site"],
+        "required_target_refs": ["eoir_short_long_targets"],
+        "event_set_ref": "eoir_sensor_events",
+        "minimum_begin_imaging_count": 3,
+        "minimum_end_imaging_count": 3,
+        "minimum_execute_count": 6,
+        "maximum_end_minutes": 25
+      }
+    },
+    {
+      "id": "reject_unsupported_radar",
+      "request": "requests/reject_unsupported_radar.txt",
+      "expect": {
+        "expected_rejection": true,
+        "rejection_step": "scope"
+      }
+    }
+  ]
+}

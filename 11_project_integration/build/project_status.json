@@ -3,6 +3,13 @@
   "root_exists": true,
   "mission_exe_exists": true,
   "model_storage_exists": true,
+  "ollama_exe_exists": true,
+  "installed_models": [
+    "qwen2.5:0.5b"
+  ],
+  "default_model": "qwen2.5:7b",
+  "default_model_installed": false,
+  "smoke_test_model_installed": true,
   "layers": [
     {
       "name": "CLI",

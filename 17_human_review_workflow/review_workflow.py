@@ -39,7 +39,7 @@ def main() -> int:
     }
     review["passed_for_training_demo"] = (
         review["automatic_evidence"]["project_quality_passed"] is True
-        and review["automatic_evidence"]["draft_provider"] == "ollama"
+        and review["automatic_evidence"]["draft_provider"] in {"ollama", "ollama_repair"}
         and review["automatic_evidence"]["run_exit_code"] == 0
         and review["automatic_evidence"]["capability_overall_passed"] is True
     )

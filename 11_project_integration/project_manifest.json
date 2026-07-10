@@ -2,7 +2,9 @@
   "project": "AFSIM_Agent",
   "root": "D:/AFsim/Agent",
   "model_storage": "D:/AFsim/Agent/ollama/models",
-  "default_model": "qwen2.5:0.5b",
+  "ollama_exe": "C:/Users/lenovo/AppData/Local/Programs/Ollama/ollama.exe",
+  "default_model": "qwen2.5:7b",
+  "smoke_test_model": "qwen2.5:0.5b",
   "mission_exe": "D:/AFsim/AFSim/afsim-2.9.0-win64/bin/mission.exe",
   "layers": [
     {
@@ -27,7 +29,8 @@
     }
   ],
   "quality_gates": [
-    "Ollama sees qwen2.5:0.5b from D:/AFsim/Agent/ollama/models",
+    "Ollama sees qwen2.5:7b from D:/AFsim/Agent/ollama/models",
+    "production runs do not use rules fallback",
     "draft_provider is ollama",
     "mission.exe exit code is 0",
     "orchestration audit passed is true"

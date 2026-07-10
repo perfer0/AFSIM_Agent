@@ -17,7 +17,7 @@ Use this skill to work on the local AFSIM intelligent scenario-generation projec
 6. Validate JSON before generating AFSIM scripts.
 7. Run `mission.exe` as the final verification gate when the step requires runnable AFSIM output.
 8. Commit and push each completed step if the repository remote is configured.
-9. Stop after one learning step and wait for the user to say "继续".
+9. For engineering acceptance, disable rule fallback and preserve the full trace and benchmark report.
 
 ## Choose The Entry Point
 
@@ -30,7 +30,8 @@ Use this skill to work on the local AFSIM intelligent scenario-generation projec
 - Project root: `D:\AFsim\Agent`
 - AFSIM mission executable: `D:\AFsim\AFSim\afsim-2.9.0-win64\bin\mission.exe`
 - Ollama model storage: `D:\AFsim\Agent\ollama\models`
-- Starter local model: `qwen2.5:0.5b`
+- Production baseline model: `qwen2.5:7b`
+- Smoke-test-only model: `qwen2.5:0.5b`
 
 ## References
 

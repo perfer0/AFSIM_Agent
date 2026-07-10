@@ -1,0 +1,9 @@
+{
+  "tutorial_files_exist": true,
+  "production_model_is_7b": true,
+  "smoke_model_is_0_5b": true,
+  "fallback_forbidden": true,
+  "benchmark_exists": false,
+  "engineering_gate_passed": false,
+  "passed": false
+}

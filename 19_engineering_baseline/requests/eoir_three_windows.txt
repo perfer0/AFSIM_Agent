@@ -1,0 +1,1 @@
+生成一个蓝方无人机 EOIR 多窗口侦察想定。使用现有 EOIR 无人机和目标集，航路参数可使用知识库默认值。必须安排三组完整成像窗口：每组都分别包含 BeginImaging 和 EndImaging，因此至少有 6 个 execute 动作。输出传感器事件，end_time 不超过 25 min。

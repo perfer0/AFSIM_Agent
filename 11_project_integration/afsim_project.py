@@ -47,11 +47,22 @@ def run(command: list[str], cwd: Path, env_extra: dict[str, str] | None = None) 
 
 def command_status(_: argparse.Namespace) -> int:
     manifest = load_json(MANIFEST)
+    model_list = run(
+        [manifest["ollama_exe"], "list"],
+        ROOT,
+        {"OLLAMA_MODELS": manifest["model_storage"]},
+    ) if Path(manifest["ollama_exe"]).exists() else {"returncode": 127, "stdout": "", "stderr": "ollama.exe not found"}
+    installed_models = [line.split()[0] for line in model_list.get("stdout", "").splitlines()[1:] if line.split()]
     status = {
         "project": manifest["project"],
         "root_exists": Path(manifest["root"]).exists(),
         "mission_exe_exists": Path(manifest["mission_exe"]).exists(),
         "model_storage_exists": Path(manifest["model_storage"]).exists(),
+        "ollama_exe_exists": Path(manifest["ollama_exe"]).exists(),
+        "installed_models": installed_models,
+        "default_model": manifest["default_model"],
+        "default_model_installed": manifest["default_model"] in installed_models,
+        "smoke_test_model_installed": manifest["smoke_test_model"] in installed_models,
         "layers": [],
     }
     for layer in manifest["layers"]:
@@ -59,7 +70,14 @@ def command_status(_: argparse.Namespace) -> int:
         status["layers"].append({**layer, "exists": path.exists()})
     write_json(BUILD / "project_status.json", status)
     print(json.dumps(status, ensure_ascii=False, indent=2))
-    return 0 if status["root_exists"] and status["mission_exe_exists"] and status["model_storage_exists"] and all(item["exists"] for item in status["layers"]) else 1
+    return 0 if (
+        status["root_exists"]
+        and status["mission_exe_exists"]
+        and status["model_storage_exists"]
+        and status["ollama_exe_exists"]
+        and status["default_model_installed"]
+        and all(item["exists"] for item in status["layers"])
+    ) else 1
 
 
 def command_run(args: argparse.Namespace) -> int:
@@ -69,7 +87,10 @@ def command_run(args: argparse.Namespace) -> int:
     integrated_request = request_path.read_text(encoding="utf-8")
     write_text(BUILD / "integrated_request.txt", integrated_request)
 
-    env_extra = {"OLLAMA_MODELS": manifest["model_storage"]}
+    env_extra = {
+        "OLLAMA_MODELS": manifest["model_storage"],
+        "AFSIM_AGENT_MODEL": manifest["default_model"],
+    }
     orchestration = run([sys.executable, str(ORCHESTRATOR), str(request_path)], ROOT / "10_agent_orchestration", env_extra)
     write_json(BUILD / "orchestration_run.json", orchestration)
 
