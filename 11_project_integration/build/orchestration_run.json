@@ -1,0 +1,11 @@
+{
+  "command": [
+    "C:\\Users\\lenovo\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "D:\\AFsim\\Agent\\10_agent_orchestration\\orchestrator.py",
+    "D:\\AFsim\\Agent\\11_project_integration\\requests\\integrated_eoir_request.txt"
+  ],
+  "cwd": "D:\\AFsim\\Agent\\10_agent_orchestration",
+  "returncode": 0,
+  "stdout": "Orchestration report: D:\\AFsim\\Agent\\10_agent_orchestration\\build\\orchestration_report.md\nAudit passed: True",
+  "stderr": ""
+}

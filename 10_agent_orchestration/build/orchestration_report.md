@@ -1,20 +1,17 @@
 # Step 10 Orchestration Report
 
-Generated at: 2026-07-10T15:28:35
+Generated at: 2026-07-10T15:31:58
 
 ## Request
 
-编排一个完整的离线 AFSIM EOIR 侦察想定生成任务：
+使用项目级入口运行一次完整 AFSIM EOIR 智能想定生成：
 
-1. 检查本地环境是否可用。
-2. 使用 MCP 工具调用本地 Agent。
-3. 使用 qwen2.5:0.5b 生成场景 JSON。
-4. 运行 mission.exe 验证。
-5. 输出可审计报告。
-
-场景要求：
-蓝方一架 EOIR 无人机在 34:30:00n 116:00w 附近执行对地成像侦察，
-目标是红方地面目标区，仿真时间不超过 20 分钟。
+1. 读取项目 manifest。
+2. 检查本地模型和 AFSIM 环境。
+3. 调用第十步总控编排器。
+4. 通过 MCP 调用本地 Agent。
+5. 生成 AFSIM 脚本并运行 mission.exe。
+6. 汇总项目级状态报告。
 
 ## Orchestration Path
 

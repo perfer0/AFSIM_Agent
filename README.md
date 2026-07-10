@@ -15,6 +15,7 @@
 08_mcp_tools/                    第八步：MCP 工具 -> 标准协议调用本地 Agent
 09_custom_skills/                第九步：Skill -> 固化 AFSIM Agent 工作流
 10_agent_orchestration/          第十步：总控编排 -> Skill/MCP/Agent/AFSIM 审计
+11_project_integration/          第十一步：项目入口 -> manifest/status/run/report
 ```
 
 ## 当前路线
@@ -33,7 +34,7 @@ Agent 最后负责任务拆解和多步调用
 后续每一步都会新建文件夹，例如：
 
 ```text
-11_project_integration/
 12_offline_packaging/
 13_capability_review/
+14_next_scenario_types/
 ```

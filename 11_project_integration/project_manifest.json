@@ -1,0 +1,35 @@
+{
+  "project": "AFSIM_Agent",
+  "root": "D:/AFsim/Agent",
+  "model_storage": "D:/AFsim/Agent/ollama/models",
+  "default_model": "qwen2.5:0.5b",
+  "mission_exe": "D:/AFsim/AFSim/afsim-2.9.0-win64/bin/mission.exe",
+  "layers": [
+    {
+      "name": "CLI",
+      "path": "07_agent_loop/agent_loop.py",
+      "purpose": "Run the local Agent loop directly."
+    },
+    {
+      "name": "MCP",
+      "path": "08_mcp_tools/mcp_server.py",
+      "purpose": "Expose the Agent loop as standard tools."
+    },
+    {
+      "name": "Skill",
+      "path": "09_custom_skills/afsim-scenario-agent/SKILL.md",
+      "purpose": "Document the reusable AFSIM Agent workflow."
+    },
+    {
+      "name": "Orchestration",
+      "path": "10_agent_orchestration/orchestrator.py",
+      "purpose": "Run environment checks, MCP, Agent, AFSIM, and audit outputs."
+    }
+  ],
+  "quality_gates": [
+    "Ollama sees qwen2.5:0.5b from D:/AFsim/Agent/ollama/models",
+    "draft_provider is ollama",
+    "mission.exe exit code is 0",
+    "orchestration audit passed is true"
+  ]
+}

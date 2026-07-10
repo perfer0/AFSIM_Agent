@@ -1,0 +1,33 @@
+{
+  "time": "2026-07-10T15:31:58",
+  "project": "AFSIM_Agent",
+  "request": "D:\\AFsim\\Agent\\11_project_integration\\requests\\integrated_eoir_request.txt",
+  "orchestration_returncode": 0,
+  "audit": {
+    "env_check_returncode": 0,
+    "mcp_returncode": 0,
+    "draft_provider": "ollama",
+    "run_exit_code": 0,
+    "required_events_present": true,
+    "artifacts_exist": {
+      "mcp_server": true,
+      "mcp_request": true,
+      "mcp_result": true,
+      "agent_trace": true,
+      "agent_scenario": true
+    },
+    "passed": true
+  },
+  "quality_gates": {
+    "model_storage": "D:/AFsim/Agent/ollama/models",
+    "default_model": "qwen2.5:0.5b",
+    "mission_exe": "D:/AFsim/AFSim/afsim-2.9.0-win64/bin/mission.exe",
+    "passed": true
+  },
+  "next_reading_order": [
+    "11_project_integration/README.md",
+    "11_project_integration/project_manifest.json",
+    "11_project_integration/build/project_run_report.json",
+    "10_agent_orchestration/build/orchestration_report.md"
+  ]
+}

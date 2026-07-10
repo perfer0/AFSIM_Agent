@@ -1,0 +1,32 @@
+{
+  "project": "AFSIM_Agent",
+  "root_exists": true,
+  "mission_exe_exists": true,
+  "model_storage_exists": true,
+  "layers": [
+    {
+      "name": "CLI",
+      "path": "07_agent_loop/agent_loop.py",
+      "purpose": "Run the local Agent loop directly.",
+      "exists": true
+    },
+    {
+      "name": "MCP",
+      "path": "08_mcp_tools/mcp_server.py",
+      "purpose": "Expose the Agent loop as standard tools.",
+      "exists": true
+    },
+    {
+      "name": "Skill",
+      "path": "09_custom_skills/afsim-scenario-agent/SKILL.md",
+      "purpose": "Document the reusable AFSIM Agent workflow.",
+      "exists": true
+    },
+    {
+      "name": "Orchestration",
+      "path": "10_agent_orchestration/orchestrator.py",
+      "purpose": "Run environment checks, MCP, Agent, AFSIM, and audit outputs.",
+      "exists": true
+    }
+  ]
+}
