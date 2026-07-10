@@ -1,0 +1,4 @@
+interface:
+  display_name: "AFSIM Scenario Agent"
+  short_description: "Offline AFSIM scenario generation workflow"
+  default_prompt: "Use $afsim-scenario-agent to generate and validate a local AFSIM EOIR scenario."
