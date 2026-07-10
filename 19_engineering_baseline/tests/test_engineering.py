@@ -89,5 +89,14 @@ class ScopeGateTests(unittest.TestCase):
         self.assertEqual(agent_loop.validate_request_scope("  "), ["request is empty"])
 
 
+class RetrievalTests(unittest.TestCase):
+    def test_chinese_eoir_request_retrieves_platform_evidence(self):
+        hits = agent_loop.retrieve_knowledge("无人机使用光电传感器进行成像侦察", top_k=3)
+        self.assertTrue(hits)
+        self.assertTrue(hits[0]["path"].endswith("eoir_platform_instance.md"))
+        self.assertEqual(len(hits[0]["sha256"]), 64)
+        self.assertIn("source", hits[0])
+
+
 if __name__ == "__main__":
     unittest.main()

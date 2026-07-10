@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "documents": [
+    {
+      "path": "afsim_snippets/eoir_platform_instance.md",
+      "keywords": ["eoir", "光电", "红外", "uav", "无人机", "sensor", "传感器", "imaging", "成像", "route", "航路"],
+      "components": ["uav_eoir"],
+      "source": "AFSIM sensor_demos EOIR platform evidence"
+    },
+    {
+      "path": "afsim_snippets/ground_site_targets.md",
+      "keywords": ["target", "目标", "ground", "地面", "position", "坐标"],
+      "components": ["ground_site", "eoir_short_long_targets"],
+      "source": "AFSIM sensor_demos EOIR target evidence"
+    },
+    {
+      "path": "afsim_snippets/event_output_sensor.md",
+      "keywords": ["event", "事件", "output", "输出", "sensor", "传感器"],
+      "components": ["eoir_sensor_events"],
+      "source": "AFSIM sensor event output evidence"
+    }
+  ]
+}

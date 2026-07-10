@@ -28,7 +28,7 @@
 | 层 | 解决什么问题 | 本项目位置 |
 |---|---|---|
 | CLI | 最稳定、最容易测试的执行入口 | `07_agent_loop/agent_loop.py` |
-| RAG | 把本地 AFSIM 组件知识送给模型 | `07_agent_loop/knowledge/` |
+| RAG | 按本地目录、中文术语和关键词检索 AFSIM 组件证据 | `07_agent_loop/knowledge/` |
 | Agent | 串联检索、生成、校验、修复、仿真 | `07_agent_loop/agent_loop.py` |
 | MCP | 让其他 AI 客户端以标准工具协议调用 CLI | `08_mcp_tools/` |
 | Skill | 固化操作规范、边界和入口说明 | `09_custom_skills/` |
@@ -110,6 +110,8 @@ Get-Content .\build\benchmark_report.md -Encoding UTF8
 ```
 
 每个样例都保留 `scenario.json`、`agent_trace.json`、`main_generated.txt`、`scenario_generated.txt` 和仿真日志，便于定位失败属于模型、校验器、生成器还是 AFSIM。
+
+RAG 的每条检索结果还会记录本地来源和 SHA-256。这样可以回答“模型生成时参考了哪份知识、那份知识当时是否发生变化”。当前知识库很小，使用可解释的目录加权检索比引入向量数据库更合适；当文档扩展到大量手册和 demo 后，再增加本地 embedding 与混合检索，并用召回率评测决定是否升级。
 
 ## 6. 0.5B 与 7B 对比
 

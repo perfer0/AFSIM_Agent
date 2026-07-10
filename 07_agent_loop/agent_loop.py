@@ -1,4 +1,5 @@
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -141,21 +142,45 @@ def load_json(path: Path) -> dict:
 
 def tokenize(text: str) -> set[str]:
     words = set(re.findall(r"[A-Za-z0-9_]+", text.lower()))
-    for keyword in ["eoir", "sensor", "event", "target", "uav", "route", "imaging"]:
-        if keyword in text.lower():
-            words.add(keyword)
+    normalized = text.lower()
+    synonyms = {
+        "eoir": ["eoir", "eo/ir", "光电", "红外"],
+        "sensor": ["sensor", "传感器", "探测器"],
+        "event": ["event", "事件", "输出"],
+        "target": ["target", "目标", "目标区"],
+        "uav": ["uav", "无人机"],
+        "route": ["route", "waypoint", "航路", "航点"],
+        "imaging": ["imaging", "image", "成像", "侦察"],
+        "ground": ["ground", "地面", "地面站"],
+        "position": ["position", "坐标", "位置"],
+    }
+    for canonical, variants in synonyms.items():
+        if any(variant in normalized for variant in variants):
+            words.add(canonical)
     return words
 
 
 def retrieve_knowledge(request_text: str, top_k: int = 3) -> list[dict]:
     request_terms = tokenize(request_text)
+    catalog_path = KNOWLEDGE / "catalog.json"
+    catalog = load_json(catalog_path) if catalog_path.exists() else {"documents": []}
+    metadata = {item["path"].replace("/", os.sep): item for item in catalog.get("documents", [])}
     hits = []
     for path in KNOWLEDGE.rglob("*.md"):
         text = load_text(path)
         terms = tokenize(text)
-        score = len(request_terms & terms)
+        relative = str(path.relative_to(KNOWLEDGE))
+        item = metadata.get(relative, {})
+        metadata_terms = tokenize(" ".join(item.get("keywords", []) + item.get("components", [])))
+        score = len(request_terms & terms) + 3 * len(request_terms & metadata_terms)
         if score:
-            hits.append({"path": str(path.relative_to(ROOT)), "score": score, "text": text})
+            hits.append({
+                "path": str(path.relative_to(ROOT)),
+                "score": score,
+                "sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+                "source": item.get("source", "local_project_knowledge"),
+                "text": text,
+            })
     hits.sort(key=lambda item: (-item["score"], item["path"]))
     return hits[:top_k]
 
@@ -177,7 +202,10 @@ def validate_request_scope(request_text: str) -> list[str]:
 def format_context(hits: list[dict]) -> str:
     blocks = []
     for hit in hits:
-        blocks.append(f"## {hit['path']} (score={hit['score']})\n\n{hit['text'].strip()}")
+        blocks.append(
+            f"## {hit['path']} (score={hit['score']}, sha256={hit['sha256']}, source={hit['source']})\n\n"
+            f"{hit['text'].strip()}"
+        )
     return "\n\n---\n\n".join(blocks)
 
 
@@ -377,7 +405,7 @@ def command_agent(args: argparse.Namespace) -> int:
     hits = retrieve_knowledge(request_text, args.top_k)
     context = format_context(hits)
     write_text(build_dir / "retrieval_context.md", context)
-    trace.add("retrieve", "ok", "retrieved local AFSIM knowledge snippets", {"hits": [{"path": h["path"], "score": h["score"]} for h in hits]})
+    trace.add("retrieve", "ok", "retrieved catalog-ranked local AFSIM knowledge snippets", {"hits": [{"path": h["path"], "score": h["score"], "sha256": h["sha256"], "source": h["source"]} for h in hits]})
 
     try:
         draft = draft_with_agent(request_text, context, args.model, args.endpoint, args.fallback_rules, trace)
